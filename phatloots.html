@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>PhatLoots</title>
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/plugindocs.css" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" media=all />
+  <script src="js/plugindocs.js"></script>
+</head>
+<body onload="onPageLoad();" onhashchange="navigateToHash();">
+  <header class="main-column">
+    <p id=headerName>Cody M. Sommer</p>
+    <p id=headerAka>AKA Codisimus</p>
+    <p id=headerDescription>PROGRAMER | AUTHOR | REALLY NEAT GUY</p>
+  </header>
+  <nav class="main-column">
+    <div class="flex-container">
+      <a class="content-column" href="index.html">NEWS</a>
+      <a class="content-column" href="learnjava.html">LEARN JAVA</a>
+      <a class="content-column current-page" href="minecraft.html">MINECRAFT</a>
+    </div>
+  </nav>
+  <aside>
+    <div id=social>
+      <p class="sidebar-label">SOCIAL</p>
+    </div>
+    <div id=publications>
+      <p class="sidebar-label">PUBLICATIONS</p>
+    </div>
+  </aside>
+  <div id=wrapper>
+    <main>
+      <div class="main-column">
+        <div class="flex-container">
+          <div class="content-column content">
+            <h1><img class="banner" alt="PhatLoots" src="images/plugin-banner-phatloots.jpg" /></h1>
+            <p id=tagline>Highly configurable loot for all</p>
+            <div id=topButtonBar class="flex-container">
+              <a class="button" href="plugins.html">More Plugins</a>
+              <a id=latestDownload class="button" href="https://github.com/Codisimus/PhatLoots/releases/latest">Download</a>
+            </div>
+            <div id=mainContent class="flex-container">
+              <div id=contentDisplay class="content-column content">
+                <div id=mainPageContent class="tabbed-content current-tab">
+                  <h2>Main Page</h2>
+                  <h3><a class="anchor" id=description></a>Description</h3>
+                  <p>This plugin allows Players to receive loot (money/items/exp/etc...) from Chests, Mobs, and more. This is much like the dungeon Chests in the vanilla game except admins can set which items may appear as loot.</p>
+                  <h3><a class="anchor" id=why></a>Why do I want this plugin?</h3>
+                  <p>PhatLoots is the perfect plugin for an RPG server. It allows you to modify which items are dropped by animals and monsters. It can even be used to have monsters spawn with armor and weapons. PhatLoots is also perfect for a minigames server. Chests can be placed around the world and be configured to spawn randomized loot which respawns after time. No matter the server style, PhatLoots can make it more exciting.</p>
+                  <h3><a class="anchor" id=features></a>Features:</h3>
+                  <dl>
+                    <dt><a class="anchor" id=support></a>Supports nearly all Bukkit plugins</dt>
+                    <dd>Supports all major Economies (Requires Vault)</dd>
+                    <dd>Supports all major Permission Plugins</dd>
+                    <dd>MythicDrops support for easily balancing MythicDrops loot as well as generating Gems and Unidentified Items</dd>
+                    <dd>Citizens Support to control loot for NPCs</dd>
+                    <dd>Votifier support to give a Player loot when they vote</dd>
+                    <dd>MultiWorld support (Different loot per World)</dd>
+                    <dd>Supports custom items made from any plugin that uses the Bukkit API (Plugins accessing NMS may cause conflicts)</dd>
+                    <dd>Simple API for plugin compatibility</dd>
+                    <dt><a class="anchor" id=configurable></a>Fully configurable</dt>
+                    <dd>Loot tables may be setup using a Chest GUI to reduce the amount of commands needed</dd>
+                    <dd>Loots can include money, items, experience, running a command, or a combination of all of these</dd>
+                    <dd>Chests can be a one time loot, hourly, daily, or reset after any amount of time down to the second</dd>
+                    <dd>All messages seen by player's are customizable and can even be turned off</dd>
+                    <dd>Each chest can have it's own loot tables to provide more random loot</dd>
+                    <dd>Chests may have various reset times so they aren't all refilled at once</dd>
+                    <dd>Optionally display to Players how much longer they must wait to retrieve more loot</dd>
+                    <dt><a class="anchor" id=chestLoot></a>Chest Loot</dt>
+                    <dd>Any Block may act like a chest (EnderChest, FlowerPot, Crate (Piston), Bookshelf, CakeBlock, etc.)</dd>
+                    <dd>Dispenser support (punch or activate the dispenser and it will dispense your loot)</dd>
+                    <dd>Ninjaing loot can be prevented by providing each Player with their own share of loot (global vs. individual)</dd>
+                    <dd>Chests can be linked to multiple loot tables at once</dd>
+                    <dd>PhatLoots may be set to autoloot for quicker looting</dd>
+                    <dd>Chests may be set to break once they are looted and then respawn when they have reset</dd>
+                    <dt><a class="anchor" id=mobLoot></a>Mob Loot</dt>
+                    <dd>Have full control over what items are dropped by mobs</dd>
+                    <dd>Allow mobs to spawn with weapons, armor, and even potion effects</dd>
+                    <dd>Allow mobs to drop money</dd>
+                    <dd>Modify how much experience mobs drop</dd>
+                    <dd>Modify how often mobs drop loot</dd>
+                    <dd>Optionally prevent mobs from dropping items unless they are killed by a Player</dd>
+                    <dd>Mob Loot may replace or include the default Minecraft mob loot</dd>
+                    <dd>Each type of mob may be linked to a different loot table</dd>
+                    <dd>Baby Zombies, Zombie Villagers, and Normal Zombies may each have their own loot tables</dd>
+                    <dd>Villagers may be linked to a loot table based on their Profession (e.g. Blacksmith, Priest, etc.)</dd>
+                    <dd>EpicBoss mob support (requires EpicBossLoot addon)</dd>
+                    <dd>Citizens support, create loot tables for NPCs</dd>
+                    <dt><a class="anchor" id=commandLoot></a>Command Loot</dt>
+                    <dd>PhatLoots can be looted using the command <span class="code">/loot &lt;PhatLoot Name&gt;</span></dd>
+                    <dd>A Player can be forced to loot a PhatLoot by using the command <span class="code">/loot give &lt;Player&gt; &lt;PhatLoot Name&gt; [Title]</span></dd>
+                    <dd>Plugins which support executing a command can use the loot command to give Players loot</dd>
+                    <dt><a class="anchor" id=lootBags></a>Loot Bags</dt>
+                    <dd>Items can be linked to a PhatLoot</dd>
+                    <dd>Loot bags can be right clicked while holding them to get the loot from inside of it</dd>
+                    <dd>Loot bags are a one time use</dd>
+                    <dd>Loot bags can even be added as loot themselves</dd>
+                    <dt><a class="anchor" id=customLoot></a>Custom Loot</dt>
+                    <dd>Commands, money, and exp may be added as loot</dd>
+                    <dd>Loot collections allow for more control over how many of what type of items are looted</dd>
+                    <dd>Supports items with custom names and descriptions (Such as items modified with the plugin Lores)</dd>
+                    <dd>Auto Enchant weapons and armors</dd>
+                    <dd>Auto name items based on their enchantments</dd>
+                    <dd>Calculate item tiers based on enchantments</dd>
+                    <dd>Add automatic damage estimations to items (e.g. +1-4 holy damage)</dd>
+                    <dd>Items may have a random amount or durability</dd>
+                  </dl>
+                  <h3><a class="anchor" id=addons></a>Addons:</h3>
+                  <p>Addons are separate jars which may be installed to enhance this plugin</p>
+                  <ol>
+                    <li><a href="http://dev.bukkit.org/bukkit-plugins/phatloots/files/68-swap-loot-v1-0-addon/">SwapLoot</a> - Randomizes which PhatLoot a chest is linked to</li>
+                    <li><a href="http://dev.bukkit.org/bukkit-plugins/phatloots/files/69-monster-nearby-v1-0-addon/">MonsterNearby</a> - Prevents Players from looting chests when a monster is nearby</li>
+                    <li><a href="http://dev.bukkit.org/bukkit-plugins/phatloots/files/70-player-nearby-v1-0-addon/">PlayerNearby</a> - Prevents chests from respawning when a Player is nearby</li>
+                    <li><a href="http://dev.bukkit.org/bukkit-plugins/phatloots/files/80-epic-boss-loot-v2-0-addon/">EpicBossLoot</a> - Allows bosses from EpicBoss to drop Mundane loot</li>
+                    <li><a href="http://dev.bukkit.org/bukkit-plugins/phatloots/files/81-randomize-lore-v1-0-addon/">RandomizedLore</a> - Generate random numbers within the lore of your loot</li>
+                    <li><a href="http://dev.bukkit.org/bukkit-plugins/phatloots/files/84-anti-camp-v1-1-addon/">AntiCamp</a> - Prevent Players from camping chests until they cooldown</li>
+                  </ol>
+                  <h3><a class="anchor" id=note></a>Note:</h3>
+                  <p>Use a plugin such as Lores with this plugin to create more interesting loot.</p>
+                </div>
+                <div id=commandsContent class="tabbed-content">
+                  <h2>Commands</h2>
+                  <p>Commands may be typed in console or in game. When entering commands in console omit the slash. i.e. <span class="code">perm give Codisimus minecraft.command.tp</span></p>
+                  <table>
+                    <tr>
+                      <th>Notation</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>Text without brackets</td>
+                      <td>Items you must type as shown</td>
+                    </tr>
+                    <tr>
+                      <td>&lt;Text inside angle brackets&gt;</td>
+                      <td>Placeholder for which you must supply a value</td>
+                    </tr>
+                    <tr>
+                      <td>[Text inside square brackets]</td>
+                      <td>Optional items</td>
+                    </tr>
+                    <tr>
+                      <td>Vertical bar (|)</td>
+                      <td>Separator for mutually exclusive items; choose one</td>
+                    </tr>
+                    <tr>
+                      <td>Ellipsis (&#8230;)</td>
+                      <td>Items that can be repeated</td>
+                    </tr>
+                  </table>
+                  <ul class="collapsible">
+                    <li>
+                      <input type="checkbox" id=helpDescription />
+                      <label for=helpDescription>In-Game Help:</label>
+                      <dl>
+                        <dt><span class="code">/loot help</span> - Display the PhatLoots Help Page</dt>
+                        <dt><span class="code">/loot help &lt;command&gt;</span> - Display a command's usage</dt>
+                        <dd><span class="codeExample">/loot help time</span> - Displays the usage details of the time command</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=createDescription />
+                      <label for=createDescription>Creating a PhatLoot:</label>
+                      <dl>
+                        <dt><span class="code">/loot make &lt;Name&gt;</span> - Create a PhatLoot with the given name</dt>
+                        <dd><span class="codeExample">/loot make Epic</span> - Creates a new PhatLoot of the name <i>Epic</i></dd>
+                        <dd>PhatLoot names are case sensitive and cannot include spaces (use underscore instead)</dd>
+                        <dt><span class="code">/loot link &lt;Name&gt;</span> - Link the target Chest with a PhatLoot</dt>
+                        <dd><span class="codeExample">/loot link Epic</span> - Links the Chest that you are currently looking at to the <i>Epic</i> PhatLoot</dd>
+                        <dd><i>Chest</i> may also refer to a dispenser or any other block supported in the config file</dd>
+                        <dt><span class="code">/loot link hand &lt;Name&gt;</span> - Link the item in hand with a PhatLoot</dt>
+                        <dd><span class="codeExample">/loot link hand Epic</span> - Links the item that you are currently holding to the <i>Epic</i> PhatLoot</dd>
+                        <dd>The linked item is known as a Loot Bag</dd>
+                        <dd>Only that specific itemstack is linked and not any other items of the same type</dd>
+                        <dt><span class="code">/loot rename &lt;PhatLoot&gt; &lt;Collection&gt; &lt;NewName&gt;</span> - Rename a PhatLoot Collection</dt>
+                        <dd><span class="codeExample">/loot rename Epic Weapons Melee_Weapons</span> - Renames the <i>Weapons</i> Loot Collection of to <i>Melee_Weapons</i> for the <i>Epic</i> PhatLoot</dd>
+                        <dd>This command only renames Loot Collections, A PhatLoot can be renamed by renaming the YAML save file</dd>
+                        <dt><span class="code">/loot unlink [Name]</span> - Unlink the target Block from a PhatLoot</dt>
+                        <dd><span class="codeExample">/loot unlink</span> - Unlinks the Chest that you are currently looking at from all PhatLoots</dd>
+                        <dd><span class="codeExample">/loot unlink Epic</span> - Removes the <i>Epic</i> PhatLoot as linked with the Chest that you are currently looking at (all other linked PhatLoots remain present)</dd>
+                        <dt><span class="code">/loot delete &lt;Name&gt;</span> - Delete a PhatLoot</dt>
+                        <dd><span class="codeExample">/loot delete Epic</span> - Deletes the PhatLoot which is named <i>Epic</i></dd>
+                        <dd>Deleting a PhatLoot also unlinks it from all Chests deletes all Loot Collections associated with it</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=setupList />
+                      <label for=setupList>Setting up a PhatLoot:</label>
+                      <p>If <i>Name</i> is not specified then all PhatLoots that are linked to the target Block will be affected. <i>Amount</i> may be a number (<span class="code">100</span>) or range (<span class="code">100-500</span>)</p>
+                      <dl>
+                        <dt><span class="code">/loot time &lt;Name&gt; &lt;Days&gt; &lt;Hrs&gt; &lt;Mins&gt; &lt;Secs&gt;</span> - Set the cooldown time for the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot time 0 1 30 0</span> - Sets the cooldown time to 1 hour and 30 minutes</dd>
+                        <dd>Once looted, Players must wait this amount of time to receive more loot from the same Chest</dd>
+                        <dt><span class="code">/loot time &lt;Name&gt; never</span> - Set the PhatLoot to only be lootable once per chest</dt>
+                        <dd><span class="codeExample">/loot time never</span> - Sets the PhatLoot to never cooldown</dd>
+                        <dd>Once looted, Players will never be able to receive more loot from the same Chest</dd>
+                        <dt><span class="code">/loot global &lt;Name&gt; &lt;true|false&gt;</span> - Configure cooldown type of the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot global true</span> - Sets the PhatLoot to a global cooldown (early bird gets the worm)</dd>
+                        <dd><span class="codeExample">/loot global false</span> - Sets the PhatLoot to an individual cooldown (worms for everyone)</dd>
+                        <dd>If you want every Player to share the loot within a Chest then set global to <span class="code">true</span>. If you want each Player to have their own loot then set global to <span class="code">false</span></dd>
+                        <dt><span class="code">/loot autoloot &lt;Name&gt; &lt;true|false&gt;</span> - Configure whether Players will need to manually remove items from chests of the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot autoloot true</span> - Sets the PhatLoot to have loot items automatically added to the Player's inventory</dd>
+                        <dd><span class="codeExample">/loot autoloot false</span> - Sets the PhatLoot to require Players to manually take items from the PhatLoot chest</dd>
+                        <dd>When autolooted, items which don't fit in the Player's inventory will stay in the chest (or will spawn on the ground if there is no chest)</dd>
+                        <dd>The chest inventory view will not be shown if all items were autolooted</dd>
+                        <dt><span class="code">/loot round &lt;Name&gt; &lt;true|false&gt;</span> - Configure whether the specified PhatLoot will round down cooldown times</dt>
+                        <dd><span class="codeExample">/loot round true</span> - Sets the PhatLoot to round down cooldown times to the closest value</dd>
+                        <dd><span class="codeExample">/loot round false</span> - Sets the PhatLoot to take the entire cooldown time to reset</dd>
+                        <dd>Setting round to true is used to create hourly or daily loots</dd>
+                        <dt><span class="code">/loot cost &lt;Name&gt; &lt;Amount&gt;</span> - Set the cost of looting the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot cost 10</span> - Players will be charged $10 whenever they loot a chest of the specified PhatLoot</dd>
+                        <dd><span class="codeExample">/loot money 0-3</span> - Players will be charged a random amount of money between $0 and $3 (inclusive) whenever they loot the specified PhatLoot</dd>
+                        <dd>Players are not charged if the chest is currently on cooldown</dd>
+                        <dd>If the Player cannot afford the payment then they do not receive loot</dd>
+                        <dd>This feature requires an economy plugin as well as Vault</dd>
+                        <dt><span class="code">/loot money &lt;Name&gt; &lt;Amount&gt;</span> - Set the amount of money to be gained upon looting the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot money 50</span> - Players will be given $50 whenever they loot the specified PhatLoot</dd>
+                        <dd><span class="codeExample">/loot money 10-100</span> - Players will be given a random amount of money between $10 and $100 (inclusive) whenever they loot the specified PhatLoot</dd>
+                        <dd>Players are not given money if the chest is currently on cooldown</dd>
+                        <dd>This feature requires an economy plugin as well as Vault</dd>
+                        <dt><span class="code">/loot exp &lt;Name&gt; &lt;Amount&gt;</span> - Set the amount of experience to be gained upon looting the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot exp 1000</span> - Players will be given 1000 experience whenever they loot the specified PhatLoot</dd>
+                        <dd><span class="codeExample">/loot exp 100-500</span> - Players will be given a random amount of experience between 100 and 500 (inclusive) whenever they loot the specified PhatLoot</dd>
+                        <dd>Players are not given experience if the chest is currently on cooldown</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=manageList />
+                      <label for=manageList>Managing PhatLoots:</label>
+                      <dl>
+                        <dt><span class="code">/loot gui [Name]</span> - Opens the info GUI of the specified PhatLoot</dt>
+                        <dd>If <i>Name</i> is not specified then all PhatLoots that are linked to the target Block will be affected</dd>
+                        <dt><span class="code">/loot reset [Name]</span> - Resets the loot history for the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot reset Epic</span> - Resets all chests of the <i>Epic</i> PhatLoot</dd>
+                        <dd><span class="codeExample">/loot reset</span> - Resets the target PhatLoot chest</dd>
+                        <dd><span class="codeExample">/loot reset all</span> - Resets all PhatLoot chests</dd>
+                        <dd>Resetting a PhatLoot chest will cancel the cooldown allowing it to be looted immediately</dd>
+                        <dt><span class="code">/loot clean [Name]</span> - Cleans the loot history for the specified PhatLoot</dt>
+                        <dd><span class="codeExample">/loot reset Epic</span> - Cleans all chests of the <i>Epic</i> PhatLoot</dd>
+                        <dd><span class="codeExample">/loot reset</span> - Cleans the target PhatLoot chest</dd>
+                        <dd><span class="codeExample">/loot reset all</span> - Cleans all PhatLoot chests</dd>
+                        <dd>Cleaning a PhatLoot chest will remove all outdated data which is no longer relevant</dd>
+                        <dd>PhatLoot chests are automattically cleaned before being saved</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=adminList />
+                      <label for=adminList>Administrative Commands:</label>
+                      <dl>
+                        <dt><span class="code">/loot list</span> - Lists all existing PhatLoots</dt>
+                        <dt><span class="code">/loot give &lt;Player&gt; &lt;PhatLoot&gt; [Title]</span> - Forces a Play to loot the specified PhatLoot</dt>
+                        <dd>If <i>Title</i> is specified then the chest GUI will be renamed to the title provided</dd>
+                        <dt><span class="code">/loot rl</span> - Reloads the PhatLoots plugin, configuration file, and add-ons</dt>
+                        <dd></dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=lootList />
+                      <label for=lootList>Manage Loot Commands:</label>
+                      <dl>
+                        <dt><span class="code">/loot &lt;add|remove&gt; &lt;Item|ID|hand&gt; [Parameter]...</span>: Add/Remove an item as loot</dt>
+                        <dd><span class="codeExample">/loot add hand #1-16 %32</span> - 32% of the time, 1 to 16 of the item you are holding will be generated</dd>
+                        <dd><span class="codeExample">/loot add bow earrow_fire(2) earrow_infinite %5</span> - 5% of the time, a bow with level 2 Flame and Infinity will be generated</dd>
+                        <dd>The item may be referenced by it's name, ID, or <span class="code">hand</span> to indicated the item you are holding</dd>
+                        <dt><span class="code">/loot &lt;add|remove&gt; coll &lt;Name&gt; [Parameter]...</span>: Add/Remove a collection as loot</dt>
+                        <dd><span class="codeExample">/loot add coll Weapon %25 #2</span> - 25% of the time, 2 loot from the <i>Weapon</i> collection will be generated</dd>
+                        <dd><span class="codeExample">/loot add coll Armor %10 #0</span> - 10% of the time, each loot within the <i>Armor</i> collection will be rolled for</dd>
+                        <dt><span class="code">/loot &lt;add|remove&gt; cmd [Parameter]... /&lt;Command&gt;</span>: Add/Remove a command which will be executed if generated</dt>
+                        <dd><span class="codeExample">/loot add cmd /say &lt;player&gt; has found a chest!</span> - Announces the message <i>Codisimus has found a chest!</i> if Codisimus loots the PhatLoot</dd>
+                        <dt><span class="code">/loot &lt;add|remove&gt; msg [Parameter]... -&lt;Message&gt;</span>: Add/Remove a message which will be sent to the looter if generated</dt>
+                        <dd><span class="codeExample">/loot add msg cWeapon %50 -&sect;5Here, take this weapon with you in your travels!</span> - Assumming the <i>Weapon</i> collection is set to roll for each item individually, the message <i>&sect;5Here, take this weapon with you in your travels!</i> will be shown to the looter 50% of the time that the <i>Weapon</i> collection is generated</dd>
+                      </dl>
+                      <p>Each <i>Parameter</i> begins with a single character id as follows:
+                      <dl>
+                        <dt><span class="code">p</span>: The name of the PhatLoot to modify</dt>
+                        <dd><span class="codeExample">pEpic</span> - Indicates the <i>Epic</i> PhatLoot</dd>
+                        <dd>If the PhatLoot parameter is not specified then all PhatLoots linked to the target Block will be affected</dd>
+                        <dt><span class="code">%</span>: The probability (or chance) of spawning the loot</dt>
+                        <dd><span class="codeExample">%50</span> - Indicates the loot will be spawned 50% (half) of the time</dd>
+                        <dd><span class="codeExample">%0.01</span> - Indicates the loot will be spawned about once in every 10,000 loots</dd>
+                        <dd>If the probability parameter is not specified then the loot will be spawned 100% (all) of the time</dd>
+                        <dt><span class="code">c</span>: The id of the loot collection to specify</dt>
+                        <dd><span class="codeExample">cWeapons</span> - Indicates the loot will be modified within the Weapons collection</dd>
+                        <dd><span class="codeExample">cFood</span> - Indicates the loot will be modified within the Food collection</dd>
+                        <dd>If the collection parameter is not specified then the loot will be modified in the top level of the PhatLoot, outside of all collections</dd>
+                        <dt><span class="code">#</span>: The amount of the item to be spawned</dt>
+                        <dd><span class="codeExample">#10</span> - Indicates that 10 of the loot will be spawned</dd>
+                        <dd><span class="codeExample">#1-64</span> - Indicates that the amount of loot which will be spawned will fall between 1 and 64 (inclusive)</dd>
+                        <dt>For collections, this number indicates the amount of loot which will be spawned from the collection</dt>
+                        <dd><span class="code">#0</span> - When the loot type is <i>coll</i>, this indicates that each loot within a collection will be rolled for individually</dd>
+                        <dd><span class="codeExample">#0-3</span> - When the loot type is <i>coll</i>, this indicates that each a maximum of 3 loot will be spawned from the collection</dd>
+                        <dd>If the amount parameter is not specified then the amount of loot spawned will be 1 (or the amount you are holding if using the <span class="code">hand</span> command</dd>
+                        <dt><span class="code">d</span>: The data or durability value of the item</dt>
+                        <dd>
+                          <span class="codeExample">d1</span> - Indicates the data value of the item
+                          <ul>
+                            <li>If the item is <i>Sand</i>, it will be <i>Red Sand</i></li>
+                            <li>If the item is <i>Golden Apple</i> then it will be <i>Enchanted Golden Apple</i></li>
+                            <li>If the item is <i>Flower</i>, it will be <i>Blue Orchid</i></li>
+                            <li>If the item is armor or a tool, it will be have 1 use remaining</li>
+                          </ul>
+                        </dd>
+                        <dt><span class="code">t</span>: Display the calculated Tier of the item</dt>
+                        <dd><span class="code">t</span> - Calculates and displays the tier of the item when generated based on the material and enchantments</dd>
+                        <dt><span class="code">l</span>: Display randomized lore on the item</dt>
+                        <dd><span class="code">l</span> - Displays a custom name as well as lore for the item when generated based on the material and enchantments</dd>
+                        <dt><span class="code">e</span>: Add enchantments to the item</dt>
+                        <dd><span class="codeExample">earrow_infinite</span> - Enchants the item (bow) to provide unlimited arrows</dd>
+                        <dd><span class="codeExample">eprotection_fire(3)</span> - Enchants the item to provide protection from fire at level 3</dd>
+                        <dd><span class="codeExample">eauto</span> - Enchants the item with random applicable enchantments at varying levels</dd>
+                        <dd>auto enchanting has the possibility of generating items with no enchantments</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+                <div id=permissionsContent class="tabbed-content">
+                  <h2>Permissions</h2>
+                  <p>Permission nodes may be given to Players or permission groups using any permissions plugin such as <a href="codsperms.html">CodsPerms</a>.</p>
+                  <dl>
+                    <dt><span class="code">phatloots.loot.*</span> - Needed to receive loots from all restricted PhatLoots</dt>
+                    <dd>
+                      <span class="codeExample">phatloots.loot.EpicLoot</span> - Needed to receive loot from the PhatLoot named EpicLoot
+                      <ul>
+                        <li>Any PhatLoot name may be substituted in place of <i>EpicLoot</i></li>
+                        <li>This permission node is only required for PhatLoots which are set as restricted within the config file</li>
+                      </ul>
+                    </dd>
+                    <dt><span class="code">phatloots.moneyfrommobs</span> - Needed to receive money from mobs</dt>
+                    <dd>This permission node is set to true by default</dd>
+                    <dt><span class="code">phatloots.commandloot</span> - Needed to receive loots through command</dt>
+                    <dt><span class="code">phatloots.rl</span> - Needed to reload the PhatLoots plugin</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot rl</span> command</dd>
+                    <dt><span class="code">phatloots.reset</span> - Needed to reset the list of users who looted PhatLoots</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot reset</span> command</dd>
+                    <dt><span class="code">phatloots.clean</span> - Needed to remove loot times that are no longer relevant</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot clean</span> command</dd>
+                    <dt><span class="code">phatloots.list</span> - Needed to list all current PhatLoots</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot list</span> command</dd>
+                    <dt><span class="code">phatloots.info</span> - Needed to see loot information of a given PhatLoot and modify it with the loot gui</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot gui</span> command</dd>
+                    <dt><span class="code">phatloots.give</span> - Needed to force a Player to loot a PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot give</span> command</dd>
+                    <dt><span class="code">phatloots.admin</span> - Needed to break linked Blocks</dt>
+                    <dd>Broken blocks will be automatically unlinked</dd>
+                    <dt><span class="code">phatloots.make</span> - Needed to create a new PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot make</span> command</dd>
+                    <dt><span class="code">phatloots.delete</span> - Needed to delete a PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot delete</span> command</dd>
+                    <dt><span class="code">phatloots.link</span> - Needed to link a PhatLoot to a chest</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot link</span> command</dd>
+                    <dt><span class="code">phatloots.unlink</span> - Needed to unlink a PhatLoot from a chest</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot unlink</span> command</dd>
+                    <dt><span class="code">phatloots.manage</span> - Needed to add or remove loot for a PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot add</span> command</dd>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot remove</span> command</dd>
+                    <dt><span class="code">phatloots.time</span> - Needed to set the reset time of a PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot time</span> command</dd>
+                    <dt><span class="code">phatloots.global</span> - Needed to set whether a PhatLoot has a global cooldown</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot global</span> command</dd>
+                    <dt><span class="code">phatloots.autoloot</span> - Needed to set whether a PhatLoot is autolooted</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot autoloot</span> command</dd>
+                    <dt><span class="code">phatloots.round</span> - Needed to set whether a PhatLoot's reset time is rounded down</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot round</span> command</dd>
+                    <dt><span class="code">phatloots.cost</span> - Needed to set the cost to loot a PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot cost</span> command</dd>
+                    <dt><span class="code">phatloots.money</span> - Needed to set how much money is looted from a PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot money</span> command</dd>
+                    <dt><span class="code">phatloots.exp</span> - Needed to set how much experience is looted from a PhatLoot</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/loot exp</span> command</dd>
+                    <dt><span class="code">phatloots.create</span> - Parent node for the following permission nodes:</dt>
+                    <dd>
+                      <ol>
+                        <li><span class="codeExample">phatloots.make</span>: true</li>
+                        <li><span class="codeExample">phatloots.delete</span>: true</li>
+                        <li><span class="codeExample">phatloots.link</span>: true</li>
+                        <li><span class="codeExample">phatloots.unlink</span>: true</li>
+                        <li><span class="codeExample">phatloots.manage</span>: true</li>
+                        <li><span class="codeExample">phatloots.time</span>: true</li>
+                        <li><span class="codeExample">phatloots.global</span>: true</li>
+                        <li><span class="codeExample">phatloots.autoloot</span>: true</li>
+                        <li><span class="codeExample">phatloots.round</span>: true</li>
+                        <li><span class="codeExample">phatloots.cost</span>: true</li>
+                        <li><span class="codeExample">phatloots.money</span>: true</li>
+                        <li><span class="codeExample">phatloots.exp</span>: true</li>
+                      </ol>
+                    </dd>
+                  </dl>
+                </div>
+                <div id=useCasesContent class="tabbed-content">
+                  <h2>Use Cases</h2>
+                  <ul class="collapsible">
+                    <li>
+                      <a class="anchor" id=useCases-treasure-chests></a>
+                      <input type="checkbox" id=useCases-treasure-chestsDescription />
+                      <label for=useCases-treasure-chestsDescription>Create treasure chests throughout a world</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-execute-commands></a>
+                      <input type="checkbox" id=useCases-execute-commandsDescription />
+                      <label for=useCases-execute-commandsDescription>Create blocks which execute commands when clicked</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-minigame-loot></a>
+                      <input type="checkbox" id=useCases-minigame-lootDescription />
+                      <label for=useCases-minigame-lootDescription>Populate chests with loot within a minigame</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-mob-drops></a>
+                      <input type="checkbox" id=useCases-mob-dropsDescription />
+                      <label for=useCases-mob-dropsDescription>Control which items are dropped by mobs</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-loot-bags></a>
+                      <input type="checkbox" id=useCases-loot-bagsDescription />
+                      <label for=useCases-loot-bagsDescription>Distribute goodie bags which give items when clicked</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-kill-rewards></a>
+                      <input type="checkbox" id=useCases-kill-rewardsDescription />
+                      <label for=useCases-kill-rewardsDescription>Reward killing mobs with money</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-npc-loot></a>
+                      <input type="checkbox" id=useCases-npc-lootDescription />
+                      <label for=useCases-npc-lootDescription>Assign loot to a boss or NPC</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-shop></a>
+                      <input type="checkbox" id=useCases-shopDescription />
+                      <label for=useCases-shopDescription>Create a shop where Players can buy items</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-mob-armor></a>
+                      <input type="checkbox" id=useCases-mob-armorDescription />
+                      <label for=useCases-mob-armorDescription>Spawn exciting Skeleton/Zombies/etc. with armor and weapons</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-fishing></a>
+                      <input type="checkbox" id=useCases-fishingDescription />
+                      <label for=useCases-fishingDescription>Configure the ability to fish special items out of the water</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-voting></a>
+                      <input type="checkbox" id=useCases-votingDescription />
+                      <label for=useCases-votingDescription>Reward Players who vote for your server</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-unlimited-dispensers></a>
+                      <input type="checkbox" id=useCases-unlimited-dispensersDescription />
+                      <label for=useCases-unlimited-dispensersDescription>Give dispensers unlimited or random items</label>
+                      <p>Description to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-daily-loot></a>
+                      <input type="checkbox" id=useCases-daily-lootDescription />
+                      <label for=useCases-daily-lootDescription>Create chests which Players may receive items from daily</label>
+                      <p>Description to come...</p>
+                    </li>
+                  </ul>
+                </div>
+                <div id=tutorialsContent class="tabbed-content">
+                  <h2>Tutorials</h2>
+                  <a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?entry.1385340767&entry.977155092&entry.160980013=Tutorial+requested+for+PhatLoots&entry.1043596531=Bukkit+Plugin+Usage&entry.977932849">Request a tutorial</a>
+                  <ul class="collapsible">
+                    <li>
+                      <a class="anchor" id=tutorials-create></a>
+                      <input type="checkbox" id=tutorials-createDescription />
+                      <label for=tutorials-createDescription>Creating a PhatLoot</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-link></a>
+                      <input type="checkbox" id=tutorials-linkDescription />
+                      <label for=tutorials-linkDescription>Assign a PhatLoot to a block or chest</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-unlimited-dispenser></a>
+                      <input type="checkbox" id=tutorials-unlimited-dispenserDescription />
+                      <label for=tutorials-unlimited-dispenserDescription>Creating an unlimited dispenser</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-mob-loot></a>
+                      <input type="checkbox" id=tutorials-mob-lootDescription />
+                      <label for=tutorials-mob-lootDescription>Creating Mob Loot (includes weapons/armor, potion effects, and NPCs)</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-lootbags></a>
+                      <input type="checkbox" id=tutorials-lootbagsDescription />
+                      <label for=tutorials-lootbagsDescription>Using LootBags</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-command-loot></a>
+                      <input type="checkbox" id=tutorials-command-lootDescription />
+                      <label for=tutorials-command-lootDescription>Adding Commands as loot</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-loot-collection></a>
+                      <input type="checkbox" id=tutorials-loot-collectionDescription />
+                      <label for=tutorials-loot-collectionDescription>Loot Collections</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-region-loot></a>
+                      <input type="checkbox" id=tutorials-region-lootDescription />
+                      <label for=tutorials-region-lootDescription>Region/World based loot</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-random-lore></a>
+                      <input type="checkbox" id=tutorials-random-loreDescription />
+                      <label for=tutorials-random-loreDescription>Randomly generated enchantments/lore</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-phatloot-file></a>
+                      <input type="checkbox" id=tutorials-phatloot-fileDescription />
+                      <label for=tutorials-phatloot-fileDescription>Reading/modifying a PhatLoot YAML file</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-loot></a>
+                      <input type="checkbox" id=tutorials-lootDescription />
+                      <label for=tutorials-lootDescription>PhatLoots API and Developing an addon</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-mythicdrops></a>
+                      <input type="checkbox" id=tutorials-mythicdropsDescription />
+                      <label for=tutorials-mythicdropsDescription>Adding MythicDrops items</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                  </ul>
+                </div>
+                <div id=faqContent class="tabbed-content">
+                  <h2>FAQ</h2>
+                  <a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?entry.1385340767&entry.977155092&entry.160980013=Question+regarding+PhatLoots&entry.1043596531=Bukkit+Plugin+Usage&entry.977932849">Ask a question</a>
+                  <ul class="collapsible">
+                    <li>
+                      <a class="anchor" id=faq-loot></a>
+                      <input type="checkbox" id=faq-lootDescription />
+                      <label for=faq-lootDescription>What is Loot?</label>
+                      <p>Loot is a gaming term which refers to the items/gear that can be acquired throughout a game. It is very common in RPGs. Loot can refer to items, experience, or currency. In PhatLoots, commands and messages can also be loot. Loot is often dropped by killing mobs and can be found within chests. In Minecraft, you can find loot in dungeon chests and when you kill a mob. PhatLoots allows for the configuration of loot for both mobs and chests. It also allows for creating loot for other things such as NPCs, fishing, and voting.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-phatloot></a>
+                      <input type="checkbox" id=faq-phatlootDescription />
+                      <label for=faq-phatlootDescription>What is a PhatLoot?</label>
+                      <p>Another name for a PhatLoot is a loot table. This is the same idea as the <a href="http://minecraft.gamepedia.com/Loot_table">upcoming loot table feature</a> in vanilla Minecraft. A loot table essentially defines which items might appear as loot. The whole point of loot is that you never know what you will get. A loot table defines how often certain loot will be handed out. Rare loot won't be generated as often as common loot. A PhatLoot is linked to chests, mobs, or something else. The PhatLoot also defines who has access to the loot and when which is determined by the reset type (global or individual) and reset time.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-custom-items></a>
+                      <input type="checkbox" id=faq-custom-itemsDescription />
+                      <label for=faq-custom-itemsDescription>Can I use custom items with PhatLoots</label>
+                      <p>PhatLoots supports custom items that are generated by other plugins. As long as the plugin follows the rules of the Bukkit/Spigot API, then PhatLoots will be able to store and generate these items. You can add these custom items as loot by using the <span class="code">/loot add hand [Parameter]...</span> command while holding the item. You can also add the item by using the <span class="code">/loot gui</span> command. Some plugins have special items that are randomly generated and therefore different each time. An example of this is MythicDrops. These plugins must be explicitly supported. PhatLoots supports MythicDrops items and the commands/GUI buttons become available if the MythicDrops plugin is detected. You can read more about this in the <a href="#tutorials">Tutorials</a> section.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-minigame-chests></a>
+                      <input type="checkbox" id=faq-minigame-chestsDescription />
+                      <label for=faq-minigame-chestsDescription>How can I use PhatLoots to populate my minigame chests?</label>
+                      <p>All minigames are handled differently. If the minigame world is in its own World, then you can use the autolink setting in the config file. You set the name of the world along with the type of block to link and the name of the PhatLoot to link the block to. This will link all blocks of that type to the specified PhatLoot. If the minigame is in an arena within a world, you can manually link all of the chests or add them to the PhatLoot's YAML save file. If you do use PhatLoots for a minigame, be sure to reset the loot history at the beginning of the match.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-dungeon-chests></a>
+                      <input type="checkbox" id=faq-dungeon-chestsDescription />
+                      <label for=faq-dungeon-chestsDescription>How do I replace dungeon chests with PhatLoot chests?</label>
+                      <p>Currently, you cannot automattically link dungeon chests to PhatLoots. There is no efficient way to find the chests scattered throughout the world. And even if there was, we cannot reliably determine if the chest was generated for a dungeon. You would have to use some sort of x-ray tool in order to manually find all of the chests and link them yourself.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-loot-collection></a>
+                      <input type="checkbox" id=faq-loot-collectionDescription />
+                      <label for=faq-loot-collectionDescription>What is a Loot Collection?</label>
+                      <p>A Loot Collection is a type of Loot that can be placed inside of a PhatLoot. However, the Loot Collection isn't exactly <i>given</i> to the looting Player. The Loot Collection will instead give the Player some of the Loot which is inside of it. Collections are typically used to group similar items together or to limit the amount of items looted. For some specific examples, read the next few FAQs. You can read more about Loot Collections in the <a href="#tutorials">Tutorials</a> section.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-give-x-amount-of-items></a>
+                      <input type="checkbox" id=faq-give-x-amount-of-itemsDescription />
+                      <label for=faq-give-x-amount-of-itemsDescription>How do I make a PhatLoot give x amount of items?</label>
+                      <p>You can do this by using a Loot Collection as described above. For example, if you wish for a PhatLoot to only give 5 items then you should put all of the items within a collection and set the collection amount to <span class="code">5</span>.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-limit-loot></a>
+                      <input type="checkbox" id=faq-limit-lootDescription />
+                      <label for=faq-limit-lootDescription>Can I limit the amount of loot given by a PhatLoot?</label>
+                      <p>Yes you can, this is very similar to the previous question and is also accomplished by using a Loot Collection. If you want the PhatLoot to limit the amount of items given to 5 then you can put the items inside of a collection and then set the amount of the collection to a range. i.e. <span class="code">1-5</span>.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-give-one-item-or-another></a>
+                      <input type="checkbox" id=faq-give-one-item-or-anotherDescription />
+                      <label for=faq-give-one-item-or-anotherDescription>How do I configure a PhatLoot to give one item or another but never both?</label>
+                      <p>Once again, this behavior is accomplished using a Loot Collection. Let's assume that you want a PhatLoot to give a weapon as loot. The weapon will either be a sword or a bow. To do this we will first create a Loot Collection within the PhatLoot. We can name the collection <i>Weapon</i> so that we will understand what it is for the next time we see it. We will set the probability of the collection <span class="code">100%</span> unless you want a weapon to be given only some of the time. The amount of the collection will be <span class="code">1</span> to specify that only 1 item will be produced from the collection. Inside of the collection we will add a sword and a bow. Looting the PhatLoot should result in either a sword or a bow every time.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-loot-not-appearing></a>
+                      <input type="checkbox" id=faq-loot-not-appearingDescription />
+                      <label for=faq-loot-not-appearingDescription>I set the probability of a Loot to 100% How come I am not seeing it everytime?</label>
+                      <p>There are a few reasons why this could happen but they usually have to do with Loot Collections. Loot with probability 100% that is within a collection will not always be spawned. The simplest cause of this is the probability of the collection itself. If the collection has a probabilty of 50% then you will only ever see the Loot within it half of the time. The rest of the causes have to do with the collection amount. If the amount of a collection is set to <span class="code">-1</span>, then the 100% Loots will be spawned everytime that the collection is looted. However, if the amount is anything else, the probability of the Loot inside of the collection acts more like a <i>weight</i>. For example, if you have 2 items each with 100% probability but the collection amount is set to <span class="code">1</span> then both items cannot be spawned. because of the collection limiting to a single Loot. If your loot is not in a collection then it may have a range for the amount. If the lower bound of the range is 0 then there is a possibility of 0 of that Loot being spawned which would result as nothing for the looter.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-give-loot-once></a>
+                      <input type="checkbox" id=faq-give-loot-onceDescription />
+                      <label for=faq-give-loot-onceDescription>How do I make a chest only give out loot a single time?</label>
+                      <p>This can be done by using the <span class="code">/loot reset never</span> command.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-cooldown-time></a>
+                      <input type="checkbox" id=faq-cooldown-timeDescription />
+                      <label for=faq-cooldown-timeDescription>What is a reset or cooldown time?</label>
+                      <p>Each PhatLoot contains a reset time. The reset time determines how long until a Player can receive additional loot from a chest/mob/etc. This is also known as the cooldown time or period. The reset time is broken down into the amount of days, hours, minutes, and seconds and are entered in that order. The loot GUI only allows you to change certain values but the <span class="code">/loot time</span> command allows setting the reset time down to the second. Assuming the following command has been executed: <span class="code">/loot time 0 0 5 30</span>, When a Player loots a linked chest, they will have to wait 5 minutes and 30 seconds until they can loot the chest again. They will be able to open the chest to see their old loot but new loot will not spawn until that cooldown period has expired.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-prevent-ninjas></a>
+                      <input type="checkbox" id=faq-prevent-ninjasDescription />
+                      <label for=faq-prevent-ninjasDescription>How can I prevent nijnaing or Players stealing loot from other Players?</label>
+                      <p>You can prevent Players from stealing loot by configuring the reset type and setting <i>global</i> to <span class="code">false</span>.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-global-reset></a>
+                      <input type="checkbox" id=faq-global-resetDescription />
+                      <label for=faq-global-resetDescription>What does it mean if a PhatLoot is set to <i>global</i> reset?</label>
+                      <p>A global reset type refers to the sharing of loot. If the PhatLoot is set to global, all Players will share the loot of a chest. If <i>global</i> is set to <span class="code">false</span>, then each individual Player will have their own copy of the loot. Each Player's loot will likely differ. Multiple Players could then be looting a chest at the same time and be presented with different loot that they can add to their inventory. The reset time will not apply between Players. Meaning, if the reset time for a chest is 1 day and the reset type is individual, if Steve loots the chest, Bob will be able to loot it minutes later and need not wait for a day.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-round-down-reset-time></a>
+                      <input type="checkbox" id=faq-round-down-reset-timeDescription />
+                      <label for=faq-round-down-reset-timeDescription>What does it mean to <i>round down</i> the reset time?</label>
+                      <p>The <i>round down</i> setting for a PhatLoot is used to create daily, or hourly loots. This option technically rounds down the loot history time to the nearest unit of measurement. For example, let's imagine that there is a chest with a reset time of one hour and a <i>round down</i> is set to <span class="code">true</span>. If Steve loots the chest at 9:26pm and 18 seconds then the loot history would not store that exact time. Instead, the second and minute values will be rounded down to 0 each. The hour will not be rounded down because the reset time includes a value in the hours place. The loot time stored will be 9:00 and 0 seconds rather than 9:26 and 18 seconds. Therefore, Steve will be able to loot the chest again at 10:00 which is an hour after 9:00 even though it is actually less than 34 minutes later. This setting provides to option to give loot each hour, day, week, or more.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-reset-vs-clear></a>
+                      <input type="checkbox" id=faq-reset-vs-clearDescription />
+                      <label for=faq-reset-vs-clearDescription>What is the difference between the <span class="code">/loot reset</span> command and the <span class="code">/loot clean</span> command?</label>
+                      <p>A history of loot times is stored by PhatLoots. These loot times ensure that a Player does not receive additional loot from a chest until after the cooldown period. The <span class="code">/loot reset</span> command clears the loot history. Executing the command allows all Players to receive more loot from the chest. The <span class="code">/loot clean</span> command clears irrelevant loot history. Loot history is irrelevant if it is already past the cooldown period. Executing the command will not effect gameplay and only remove extra data which is no longer needed. Loot history is automatically cleaned before data is saved. The only reason you will want to use the clean command is if your server does not shut down for long periods of time and You have turned off the autosave feature in PhatLoots.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-loot-gui></a>
+                      <input type="checkbox" id=faq-loot-guiDescription />
+                      <label for=faq-loot-guiDescription>What is the loot GUI and how do I use it?</label>
+                      <p>The loot GUI is a chest interface that is used to easily modify a PhatLoot. You can drag, drop, and click to configure the the loot table. This is much quicker and more user friendly than typing in commands. The loot GUI is the recommended method of setting up loot tables and managing the loot within them. The corresponding commands are intended to be a backup solution.</p>
+                      <p>The loot GUI can be opened using the <span class="code">/loot gui</span> command.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-performance></a>
+                      <input type="checkbox" id=faq-performanceDescription />
+                      <label for=faq-performanceDescription>I only need PhatLoots to do one thing, won't all of the other features slow down my server?</label>
+                      <p>PhatLoots has a lot of features. Most of these features you will never use. However, this should not deter you from using the plugin. All of the features that would have a performance impact on the server are able to be turned off. The top of the config file has the option to turn these features on or off. If you are concerned with performance, you should go through these settings and set each unused feature to <span class="code">false</span>. I dare you to compare timing reports of this plugin against others on your server. If PhatLoots is hogging any resources then let me know and I will fix it.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=faq-addon></a>
+                      <input type="checkbox" id=faq-addonDescription />
+                      <label for=faq-addonDescription>What is an <i>addon</i>?</label>
+                      <p>An addon is a JAR file that contains an additional PhatLoots feature. This keeps the configuration settings seperate and easier to manage. Instead of turn a feature on by setting a value to <span class="code">true</span> in config.yml, you turn the feature on by installing the addon. The concept of addons also allows other developers to add features to Phatloots without the need to modify the plugins code.</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id=contentNavigation>
+                <ul id=tabList>
+                  <li><a id=mainPageTab class="button tab current-tab" href="#mainPage">Main Page</a></li>
+                  <li><a id=commandsTab class="button tab" href="#commands">Commands</a></li>
+                  <li><a id=permissionsTab class="button tab" href="#permissions">Permissions</a></li>
+                  <li><a id=useCasesTab class="button tab" href="#useCases">Use Cases</a></li>
+                  <li><a id=tutorialsTab class="button tab" href="#tutorials">Tutorials</a></li>
+                  <li><a id=faqTab class="button tab" href="#faq">FAQ</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id=bottomButtonBar class="flex-container">
+              <a class="button" href="https://github.com/Codisimus/PhatLoots/issues/new">Submit a Ticket</a>
+              <a class="button" href="https://github.com/Codisimus/PhatLoots">Source Code</a>
+              <a class="button" href="http://codisimus.github.io/PhatLoots/javadoc/index.html">Javadocs</a>
+              <a class="button" href="https://github.com/Codisimus/PhatLoots/releases">Dev Builds</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="main-column">
+      <div class="flex-container">
+        <img src="images/aboutmepic.jpg" alt="About Me">
+        <div class="content">
+          <p>Hi, my name is Cody M. Sommer. I am 24 years old and live near Rochester, NY with my wife Ella and my daughter Hazel. I have earned my bachelors degree in Computer Science at SUNY Brockport and I currently work for Thomson Reuters.</p>
+          <p>In my spare time I enjoy programming, making videos/music, and playing games. Online, I go by the alias Codisimus and I am most known for my Minecraft server plugins. I have written several Bukkit plugins including ButtonWarp and PhatLoots. I have also done private work for some large public servers. I love programming for Minecraft and I have even written a book instructing others how to do the same. Sadly, I do not do private work or plugin requests anymore. However, if you are willing to buy my book and try to create a plugin yourself I will try to answer any questions that you have about Bukkit or developing with it.</p>
+        </div>
+        <iframe id=contactForm src="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?embedded=true"><a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform">Loading contact form...</a></iframe>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

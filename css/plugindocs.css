@@ -1,0 +1,78 @@
+h1 {
+  margin: 5px;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+}
+
+#tagline {
+  margin: 10px;
+  text-align: center;
+  vertical-align: middle;
+  text-indent: 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#topButtonBar .button ~ .button {
+  margin-left: auto;
+}
+
+main .content h2 {
+  background: transparent;
+}
+
+#bottomButtonBar .button {
+  margin: auto;
+}
+
+#contentDisplay {
+  z-index: 10;
+  margin-right: 0px;
+  background: #2A0400;
+}
+
+.tabbed-content {
+  display: none;
+}
+
+.tabbed-content.current-tab {
+  display: block;
+}
+
+.tabbed-content a:link {
+  color: royalblue;
+}
+
+.tabbed-content a:visited {
+  color: mediumorchid;
+}
+
+#tabList {
+  padding: 0px;
+  list-style-type: none;
+}
+
+#tabList .tab {
+  position: relative;
+  left: -15px;
+  z-index: 11;
+}
+
+#tabList .tab.current-tab {
+  position: relative;
+  z-index: 9;
+  background: #2A0400;
+  color: #C1272D;
+}
+
+#commandsContent label {
+  font-size: 28px;
+}
+
+#mainPageContent dd, li dd {
+  display: list-item;
+  list-style-type: square;
+}

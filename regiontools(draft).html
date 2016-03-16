@@ -1,0 +1,226 @@
+<head>
+  <link rel="shortcut icon" href="images/favicon.ico"/>
+  <title>RegionTools</title>
+  <link rel=stylesheet type=text/css href="css/main.css">
+  <link rel=stylesheet type=text/css href="css/plugindocs.css">
+  <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" media=all>
+  <script src="js/plugindocs.js"></script>
+</head>
+<body onload="onPageLoad();" onhashchange="navigateToHash();">
+  <header class="main-column">
+    <h1>
+      Cody M. Sommer
+    </h1>
+    <p id=headerAka>
+      AKA Codisimus
+    </p>
+    <p id=headerDescription>
+      PROGRAMER | AUTHOR | REALLY NEAT GUY
+    </p>
+  </header>
+  <nav class="main-column">
+    <div class="flex-container">
+      <a class="content-column" href="index.html">NEWS</a>
+      <a class="content-column" href="learnjava.html">LEARN JAVA</a>
+      <a class="content-column current-page" href="minecraft.html">MINECRAFT</a>
+    </div>
+  </nav>
+  <aside>
+    <div id=social>
+      <p class=sidebar-label>
+        SOCIAL
+      </p>
+    </div>
+    <div id=publications>
+      <p class="sidebar-label">
+        PUBLICATIONS
+      </p>
+    </div>
+  </aside>
+  <div id=wrapper>
+    <main>
+      <div class="main-column">
+        <div class="flex-container">
+          <div class="content-column content">
+            <img class="banner" alt="RegionTools" src="images/plugin-banner-regiontools.jpg">
+            <h2>Bukkit Permissions done right</h2>
+            <div id=topButtonBar class="flex-container">
+              <a class="button" href="plugins.html">More Plugins</a>
+              <a id=latestDownload class="button" href="https://github.com/Codisimus/RegionTools/releases/latest">Download</a>
+            </div>
+            <div id=mainContent class="flex-container">
+              <div id=contentDisplay class="content-column content">
+                <div id=mainPageContent class="tabbed-content current-tab">
+                  <h3>Description</h3>
+                  <p>
+                    CodsPerms is a lightweight Permissions alternative. Unlike most other popular permissions plugins, CodsPerms was initially built around the Bukkit Permissions API and thus completely aligns with it. Redundant features are excluded to prevent the need of an additional API to use them. Therefore, features like permission groups are automatically supported by any plugin which uses Bukkit permissions.
+                  </p>
+                  <h3>Why do I want this plugin?</h3>
+                  <p>
+                    A permission plugin allows for giving some players special privileges while restricting others. It is more advanced than simply using OP and non-OP. A plugin such as this one is needed if you trust certain players over others and wish to give them more control over the server. i.e. appointing server moderators/admins or preventing new players from building without first being approved.
+                  </p>
+                  <h3>Features:</h3>
+                  <ul>
+                    <li>Flat file (YAML) support</li>
+                    <li>Database (MySQL) support</li>
+                    <li>API to allow for a custom data storage implementation</li>
+                    <li>Grouped permissions including default and inheritance (using Bukkit's permissions.yml)</li>
+                    <li>Commands allow for assigning permissions from in-game</li>
+                    <li>Permission nodes may be added or negated to align with Bukkit's API</li>
+                  </ul>
+                  <h3>Note:</h3>
+                  <p>
+                    Group permissions are not supported as you can group permission nodes using Bukkit's permissions.yml file. Groups are created as permission nodes to allow for group checking through Bukkit's API rather than connecting to CodsPerms.
+                  </p>
+                </div>
+                <div id=commandsContent class="tabbed-content">
+                  <p>
+                    Commands may be typed in console or in game. When entering commands in console omit the slash. i.e. <b>perm give Codisimus minecraft.command.tp</b>
+                  </p>
+                  <table>
+                    <tr>
+                      <th>Notation</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>Text without brackets</td>
+                      <td>Items you must type as shown</td>
+                    </tr>
+                    <tr>
+                      <td>&lt;Text inside angle brackets&gt;</td>
+                      <td>Placeholder for which you must supply a value</td>
+                    </tr>
+                    <tr>
+                      <td>[Text inside square brackets]</td>
+                      <td>Optional items</td>
+                    </tr>
+                    <tr>
+                      <td>Vertical bar (|)</td>
+                      <td>Separator for mutually exclusive items; choose one</td>
+                    </tr>
+                  </table>
+                  <ul>
+                    <li>
+                      <b>/perm give <Player> <Node> [true|false]</b> - Give a Player the specified permission node
+                      <ul>
+                        <li><b>/perm give Codisimus minecraft.command.tp</b> - Gives Codisimus the 'minecraft.command.tp' permission node</li>
+                        <li><b>/perm give Codisimus minecraft.command.me false</b> - Sets the 'minecraft.command.tp' permission node to false which ensures it is not inherited</li>
+                      </ul>
+                    </li>
+                    <li>
+                      <b>/perm take <Player> <Node></b> - Take the specified permmission node from a Player
+                      <ul>
+                        <li><b>/perm take Codisimus minecraft.command.tp</b> - Removes the 'minecraft.command.tp' permission node for Codisimus</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div id=permissionsContent class="tabbed-content">
+                  <p>
+                    Permission nodes may be given to Players or permission groups using any permissions plugin such as <a href="codsperms.html">CodsPerms</a>.
+                  </p>
+                  <ul>
+                    <li>
+                      <b>permissions.manage</b> - Needed to set permissions
+                      <ul>
+                        <li>
+                          Explicitly allows for use of the <b>/perm</b> command 
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                <div id=useCasesContent class="tabbed-content">
+                  <h3>Giving permission nodes to a specific Player</h3>
+                  <p>
+                    Permission nodes are available from most Bukkit plugins and even for some vanilla Minecraft commands. You may find the need to give a Player on your server a permission node. For example, the Minecraft command <b>/give</b> is used to generate items and give them to a specific Player. This command could obviously be abused, therefore Players who are not OP (operator) cannot use the command. The <b>/give</b> command also has the permission node <b>minecraft.command.give</b>. The permission node can be given to an individual player using the <b><a href="#commands">/perm give</a></b> command. Therefore the player will be able to generate items but won't be able to execute other commands such as one that stops the server completely.
+                  </p>
+                  <h3>Grouping permission nodes together/Giving a Player multiple permission nodes at once</h3>
+                  <p>
+                    You can easily give a Player a permission node as explained above. However, it could be tiresome to repeatedly give multiple permission node to multiple 
+                    Players. Instead you can group several permission nodes into a single node by <a href="http://wiki.bukkit.org/Permissions.yml">using Bukkit's permission.yml file</a>. This single node can be given to Players as described above.
+                  </p>
+                  <h3>Assigning staff roles on a server</h3>
+                  <p>
+                    Most Minecraft servers will have a staff. This staff involves roles such as Admin, Moderator, Builder, Developer, etc. You can group permission nodes together before giving them to Players as explained above. You could make a group nodes such as staff.admin, staff.mod, etc. Then you simply give your staff member a single node to assign the role. A Player can even be assigned multiple roles in this way.
+                  </p>
+                  <h3>Create group inheritance</h3>
+                  <p>
+                    If you have multiple permission groups as explained above, you may want to create some inheritance rather than adding the permission nodes to multiple groups. In the screnario above you can give the staff.mod permission node to the staff.admin permission group. That way the Admin group will inherit all of the permissions that the Moderator group has.
+                  </p>
+                </div>
+                <div id=tutorialsContent class="tabbed-content">
+                  <h2><a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?entry.1385340767&entry.977155092&entry.160980013=Tutorial+requested+for+RegionTools&entry.1043596531=Bukkit+Plugin+Usage&entry.977932849">Request a tutorial</a></h2>
+                  <h3>Creating a permission group</h3>
+                  <p>
+                    Tutorial to come...
+                  </p>
+                  <h3>Creating staff roles with inheritence</h3>
+                  <p>
+                    Tutorial to come...
+                  </p>
+                  <h3>Using MySQL for database support</h3>
+                  <p>
+                    Tutorial to come...
+                  </p>
+                  <h3>Reading and modifying YAML data file</h3>
+                  <p>
+                    Tutorial to come...
+                  </p>
+                  <h3>Programatically check if Player is in a group</h3>
+                  <p>
+                    Tutorial to come...
+                  </p>
+                </div>
+                <div id=faqContent class="tabbed-content">
+                  <h2><a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?entry.1385340767&entry.977155092&entry.160980013=Question+regarding+RegionTools&entry.1043596531=Bukkit+Plugin+Usage&entry.977932849">Ask a question</a></h2>
+                  <h3>Where are permission groups like I see in all other permission plugins</h3>
+                  <p>
+                    Other plugins have groups because they were created before the Bukkit API supported permissions. The Bukkit Permission API purposely does not support permission groups because they are not needed. Instead of adding Players to groups, you can group permission nodes together and give the parent node to the Players instead. For more information see <i>Grouping permission nodes together</i> within the <a href="#useCases">Use Cases tab</a>. Most plugins do not support checking if a Player is in a specific group. However, they do support normal permission nodes which is what CodsPerms uses as groups. Therefore, not having explicit permission groups make your other plugins more compatible with each other.
+                  </p>
+                  <h3>Why can't I use a wildcard, such as <i>pluginname.*</i>, to assign multiple permission nodes?</h3>
+                  <p>
+                    The Bukkit API does not support the wildcard node as explained <a href="http://wiki.bukkit.org/Permissions.yml#Assigning_.27.2A.27_Nodes">here</a>. It is up to the plugin developer to group their permission nodes. For this same reason, I do not support wildcards in my plugin.
+                  </p>
+                  <h3>What does it mean to set a permission node to <i>false</i></h3>
+                  <p>
+                    With the Bukkit API, You can give a permission node to a Player and you can also take it away. All popular permissions plugins support this. However, Bukkit also allows for setting a permission node to false which few permissions plugins support. Setting a node to false means that the Player will not have that specific permission. This is needed if the permission node would typically be inherited or if it is given to all Players by default. An example of this would be the <b>/me</b> command which is available to everyone by default. You can take away permission to use this command by setting the <b>minecraft.command.me</b> node to <i>false</i>.
+                  </p>
+                </div>
+              </div>
+              <div id=contentNavigation>
+                <ul id=tabList>
+                  <li><a id=mainPageTab class="button tab current-tab" href="#mainPage">Main Page</a></li>
+                  <li><a id=commandsTab class="button tab" href="#commands">Commands</a></li>
+                  <li><a id=permissionsTab class="button tab" href="#permissions">Permissions</a></li>
+                  <li><a id=useCasesTab class="button tab" href="#useCases">Use Cases</a></li>
+                  <li><a id=tutorialsTab class="button tab" href="#tutorials">Tutorials</a></li>
+                  <li><a id=faqTab class="button tab" href="#faq">FAQ</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id=bottomButtonBar class="flex-container">
+              <a class="button" href="https://github.com/Codisimus/RegionTools/issues/new">Submit a Ticket</a>
+              <a class="button" href="https://github.com/Codisimus/RegionTools">Source Code</a>
+              <a class="button" href="https://github.com/Codisimus/RegionTools/releases">Old Versions</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="main-column">
+      <div class="flex-container">
+        <img src="images/aboutmepic.jpg" alt="About Me">
+        <div class="content">
+          <p>
+            Hi, my name is Cody M. Sommer. I am 24 years old and live near Rochester, NY with my wife Ella and my daughter Hazel. I have earned my bachelors degree in Computer Science at SUNY Brockport and I currently work for Thomson Reuters.
+          </p>
+          <p>
+            In my spare time I enjoy programming, making videos/music, and playing games. Online, I go by the alias Codisimus and I am most known for my Minecraft server plugins. I have written several Bukkit plugins including ButtonWarp and PhatLoots. I have also done private work for some large public servers. I love programming for Minecraft and I have even written a book instructing others how to do the same. Sadly, I do not do private work or plugin requests anymore. However, if you are willing to buy my book and try to create a plugin yourself I will try to answer any questions that you have about Bukkit or developing with it.
+          </p>
+        </div>
+        <iframe id=contactForm src="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?embedded=true"><a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform">Loading contact form...</a></iframe>
+      </div>
+    </footer>
+  </div>
+</body>

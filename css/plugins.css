@@ -1,0 +1,8 @@
+#pluginList {
+  padding: 0px;
+  list-style-type: none;
+}
+
+#pluginList li {
+  text-align: center;
+}
