@@ -44,8 +44,8 @@ function sendGitHubRequests() {
 function updateDownloadButton() {
   var responseObj = JSON.parse(this.responseText);
   var downloadButton = document.getElementById("latestDownload");
-  if (responseObj.name) {
-    downloadButton.textContent += " " + responseObj.name;
+  if (responseObj.tag_name) {
+    downloadButton.textContent += " " + responseObj.tag_name;
     downloadButton.href = responseObj.assets[0].browser_download_url;
   }
 };
