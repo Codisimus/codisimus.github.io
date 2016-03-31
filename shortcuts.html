@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Shortcuts</title>
+  <link rel="shortcut icon" href="images/favicon.ico" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/plugindocs.css" />
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" media=all />
+  <script src="js/plugindocs.js"></script>
+</head>
+<body onload="onPageLoad();" onhashchange="navigateToHash();">
+  <header class="main-column">
+    <p id=headerName>Cody M. Sommer</p>
+    <p id=headerAka>AKA Codisimus</p>
+    <p id=headerDescription>PROGRAMER | AUTHOR | REALLY NEAT GUY</p>
+  </header>
+  <nav class="main-column">
+    <div class="flex-container">
+      <a class="content-column" href="index.html">NEWS</a>
+      <a class="content-column" href="learnjava.html">LEARN JAVA</a>
+      <a class="content-column current-page" href="minecraft.html">MINECRAFT</a>
+    </div>
+  </nav>
+  <aside>
+    <div id=social>
+      <p class="sidebar-label">SOCIAL</p>
+    </div>
+    <div id=publications>
+      <p class="sidebar-label">PUBLICATIONS</p>
+    </div>
+  </aside>
+  <div id=wrapper>
+    <main>
+      <div class="main-column">
+        <div class="flex-container">
+          <div class="content-column content">
+            <h1><img class="banner" alt="Shortcuts" src="images/plugin-banner-shortcuts.jpg" /></h1>
+            <p id=tagline>Administrative tools for every server</p>
+            <div id=topButtonBar class="flex-container">
+              <a class="button" href="plugins.html">More Plugins</a>
+              <a id=latestDownload class="button" href="https://github.com/Codisimus/Shortcuts/releases/latest">Download</a>
+            </div>
+            <div id=mainContent class="flex-container">
+              <div id=contentDisplay class="content-column content">
+                <div id=mainPageContent class="tabbed-content current-tab">
+                  <h2>Main Page</h2>
+                  <h3><a class="anchor" id=description></a>Description</h3>
+                  <p>This plugin adds basic commands and functionality to any Minecraft server</p>
+                  <h3><a class="anchor" id=why></a>Why do I want this plugin?</h3>
+                  <p>Shortcuts makes an admins live easier. It is lightweight and includes commands for teleporting, flying, sending messages, seting the time of day, and more. This plugin is ment to add whatever tiny features you need on your server. If it is missing something that you think would be useful, submit a ticket to have it added.</p>
+                  <h3><a class="anchor" id=features></a>Features:</h3>
+                  <dl>
+                    <dt><a class="anchor" id=shorcuts></a>Provides shortcuts to commonly used commands</dt>
+                    <dd>/td = /toggledownfall</dd>
+                    <dd>/day = /time set day</dd>
+                    <dd>/night = /time set night</dd>
+                    <dd>/gm = /gamemode</dd>
+                    <dd>etc.</dd>
+                    <dt><a class="anchor" id=fly></a>Come Fly With Me</dt>
+                    <dd><span class="code">/fly</span> allows you to quickly toggle between flying without changing your gamemode</dd>
+                    <dd>You can set your fly speed incase you want to move around more quickly</dd>
+                    <dt><a class="anchor" id=pluginManagement></a>Start and stop individual plugins</dt>
+                    <dd>You can reload a single plugin with the <span class="code">/prl</span> command</dd>
+                    <dd>No longer do you need to stop the entire server to load new config or data files</dd>
+                    <dd>You can temporarily disable a plugin with the <span class="code">/disable</span> command</dd>
+                    <dd>If a plugin is causing issues, you can avoid stopping the entire server</dd>
+                    <dt><a class="anchor" id=heal></a>Recover your health</dt>
+                    <dd>The <span class="code">/heal</span> command replenishes the health and hunger of you or another Player</dd>
+                    <dt><a class="anchor" id=spawn></a>Teleporting</dt>
+                    <dd>Change the world's spawn location and allow others to teleport to it using <span class="code">/spawn</span></dd>
+                    <dd>tp to others or tph them to you</dd>
+                    <dt><a class="anchor" id=lootBags></a>Assert your authority</dt>
+                    <dd>Spy on a Player's inventory and even confiscate illfully obtained items</dd>
+                    <dd>Ban a Player permanently or temporarily as a warning</dd>
+                    <dt><a class="anchor" id=customLoot></a>Private chatting</dt>
+                    <dd>Allow players to whisper to each other and easily reply without everyone else seeing</dd>
+                  </dl>
+                  <h3><a class="anchor" id=note></a>Note:</h3>
+                  <p>This is a plugin of the people, I will gladly add any requested commands as long as the fit the category of simple admin tool.</p>
+                </div>
+                <div id=commandsContent class="tabbed-content">
+                  <h2>Commands</h2>
+                  <p>Commands may be typed in console or in game. When entering commands in console omit the slash. i.e. <span class="code">perm give Codisimus minecraft.command.tp</span></p>
+                  <table>
+                    <tr>
+                      <th>Notation</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>Text without brackets</td>
+                      <td>Items you must type as shown</td>
+                    </tr>
+                    <tr>
+                      <td>&lt;Text inside angle brackets&gt;</td>
+                      <td>Placeholder for which you must supply a value</td>
+                    </tr>
+                    <tr>
+                      <td>[Text inside square brackets]</td>
+                      <td>Optional items</td>
+                    </tr>
+                    <tr>
+                      <td>Vertical bar (|)</td>
+                      <td>Separator for mutually exclusive items; choose one</td>
+                    </tr>
+                    <tr>
+                      <td>Ellipsis (&#8230;)</td>
+                      <td>Items that can be repeated</td>
+                    </tr>
+                  </table>
+                  <ul class="collapsible">
+                    <li>
+                      <input type="checkbox" id=funDescription />
+                      <label for=funDescription>Fun Commands:</label>
+                      <dl>
+                        <dt><span class="code">/fly [Speed]</span> - Toggle high speed fly (Valid speeds are 1-10)</dt>
+                        <dd><span class="codeExample">/fly</span> - Toggle flying status</dd>
+                        <dd><span class="codeExample">/fly 10</span> - Turn flying on at max speed</dd>
+                        <dt><span class="code">/w &lt;Player&gt; &lt;Message&gt;</span> - Send a private message to the given Player</dt>
+                        <dd><span class="codeExample">/w Codisimus Hello friend!</span> - Sends the message <i>Hello Friend</i> that only Codisimus can see</dd>
+                        <dt><span class="code">/re &lt;Message&gt;</span> - Send a private message to last Player who whispered to you</dt>
+                        <dd><span class="codeExample">/re Why hello to you too :)</span> - Sends the message <i>Why hello to you too :)</i> to the Player who last whispered to you</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=serverDescription />
+                      <label for=serverDescription>Server Management:</label>
+                      <dl>
+                        <dt><span class="code">/prl &lt;Plugin&gt;</span> - Reload a Plugin</dt>
+                        <dd><span class="codeExample">/prl PhatLoots</span> - Reloads the plugin <i>PhatLoots</i> which causes new config/save files to be loaded</dd>
+                        <dt><span class="code">/disable &lt;Plugin&gt;</span> - Disable a Plugin</dt>
+                        <dd><span class="codeExample">/disable PhatLoots</span> - Disables the plugin <i>PhatLoots</i> so that it no longer modifies the Minecraft server</dd>
+                        <dt><span class="code">/enable &lt;Plugin&gt;</span> - Enable a Plugin</dt>
+                        <dd><span class="codeExample">/disable PhatLoots</span> - Re-enables the plugin <i>PhatLoots</i> so that it once again modifies the Minecraft server</dd>
+                        <dd><span class="codeExample">/disable NewPlugin</span> - Enables the plugin <i>NewPlugin</i> so that it can be installed without stopping the server</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=modDescription />
+                      <label for=modDescription>Moderator Tools:</label>
+                      <dl>
+                        <dt><span class="code">/td</span> - Toggle downfall for the current World</dt>
+                        <dd><span class="codeExample">/td</span> - Turns off the rain if it is currently on</dd>
+                        <dt><span class="code">/day</span> - Set world time to 0</dt>
+                        <dd><span class="codeExample">/day</span> - Sets the time of the current world to dawn</dd>
+                        <dt><span class="code">/noon</span> - Set world time to 6000</dt>
+                        <dd><span class="codeExample">/noon</span> - Sets the time of the current world to mid day</dd>
+                        <dt><span class="code">/night</span> - Set world time to 18000</dt>
+                        <dd><span class="codeExample">/night</span> - Sets the time of the current world to dusk</dd>
+                        <dt><span class="code">/heal</span> - Heal yourself or another Player</dt>
+                        <dd><span class="codeExample">/heal</span> - Gives yourself max health and replenishes your food level</dd>
+                        <dd><span class="codeExample">/heal Codisimus</span> - Gives Codisimus max health and replenishes his food level</dd>
+                        <dt><span class="code">/spy &lt;Player&gt;</span> - View the given Player's Inventory</dt>
+                        <dd><span class="codeExample">/spy Codisimus</span> - Open Codisimus's inventory to view or modify it</dd>
+                        <dt><span class="code">/ban &lt;Player&gt;</span> - Ban the given Player</dt>
+                        <dd><span class="codeExample">/ban Codisimus</span> - Ban Codisimus from logging onto the server</dd>
+                      </dl>
+                    </li>
+                    <li>
+                      <input type="checkbox" id=teleportDescription />
+                      <label for=teleportDescription>Teleporting:</label>
+                      <dl>
+                        <dt><span class="code">/setspawn</span> - Set the spawn Location of the current World</dt>
+                        <dd><span class="codeExample">/setspawn</span> - Sets that everyone will respawn at your current location</dd>
+                        <dt><span class="code">/spawn</span> - Teleport to the current World's spawn</dt>
+                        <dd><span class="codeExample">/spawn</span> - Teleports you to the worlds spawn location</dd>
+                        <dt><span class="code">/tp [PlayerA] &lt;PlayerB&gt;</span> - Teleport Player A (or yourself) to Player B</dt>
+                        <dd><span class="codeExample">/tp Codisimus Steve</span> - Teleports Codisimus to Steve's location</dd>
+                        <dd><span class="codeExample">/tp Steve</span> - Teleports yourself to Steve's location</dd>
+                        <dt><span class="code">/tph &lt;Player&gt;</span> - Teleports the given Player to you</dt>
+                        <dd><span class="codeExample">/tph Codisimus</span> - Teleports Codisimus to your location</dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+                <div id=permissionsContent class="tabbed-content">
+                  <h2>Permissions</h2>
+                  <p>Permission nodes may be given to Players or permission groups using any permissions plugin such as <a href="codsperms.html">CodsPerms</a>.</p>
+                  <dl>
+                    <dt><span class="code">shortcuts.prl</span> - Needed to reload a plugin</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/prl</span> command</dd>
+                    <dt><span class="code">shortcuts.enable</span> - Needed to enable a plugin</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/enable</span> command</dd>
+                    <dt><span class="code">shortcuts.disable</span> - Needed to disable a plugin</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/disable</span> command</dd>
+                    <dt><span class="code">shortcuts.setspawn</span> - Needed to set the World's spawn</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/setspawn</span> command</dd>
+                    <dt><span class="code">shortcuts.spawn</span> - Needed to teleport to the World's spawn</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/spawn</span> command</dd>
+                    <dd>This permission node is set to true by default</dd>
+                    <dt><span class="code">shortcuts.w</span> - Needed to whisper to another Player</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/w</span> command</dd>
+                    <dd>This permission node is set to true by default</dd>
+                    <dt><span class="code">shortcuts.re</span> - Needed to reply to another Player's whisper</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/re</span> command</dd>
+                    <dd>This permission node is set to true by default</dd>
+                    <dt><span class="code">shortcuts.td</span> - Needed to toggle downfall</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/td</span> command</dd>
+                    <dt><span class="code">shortcuts.day</span> - Needed to set the time to day</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/day</span> command</dd>
+                    <dt><span class="code">shortcuts.noon</span> - Needed to set the time to noon</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/noon</span> command</dd>
+                    <dt><span class="code">shortcuts.night</span> - Needed to set the time to night</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/night</span> command</dd>
+                    <dt><span class="code">shortcuts.gm</span> - Needed to change your gamemode</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/gm</span> command</dd>
+                    <dt><span class="code">shortcuts.tp</span> - Needed to teleport Players</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/tp</span> command</dd>
+                    <dt><span class="code">shortcuts.tph</span> - Needed to teleport Players to you</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/tph</span> command</dd>
+                    <dt><span class="code">shortcuts.spy</span> - Needed to spy on a Player's inventory</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/spy</span> command</dd>
+                    <dt><span class="code">shortcuts.ban</span> - Needed to ban a Player</dt>
+                    <dd>Explicitly allows for use of the <span class="codeExample">/ban</span> command</dd>
+                    <dt><span class="code">shortcuts.time</span> - Parent node for the following permission nodes:</dt>
+                    <dd>
+                      <ol>
+                        <li><span class="codeExample">shortcuts.day</span>: true</li>
+                        <li><span class="codeExample">shortcuts.noon</span>: true</li>
+                        <li><span class="codeExample">shortcuts.night</span>: true</li>
+                      </ol>
+                    </dd>
+                    <dt><span class="code">shortcuts.pluginloading</span> - Parent node for the following permission nodes:</dt>
+                    <dd>
+                      <ol>
+                        <li><span class="codeExample">shortcuts.prl</span>: true</li>
+                        <li><span class="codeExample">shortcuts.enable</span>: true</li>
+                        <li><span class="codeExample">shortcuts.disable</span>: true</li>
+                      </ol>
+                    </dd>
+                  </dl>
+                </div>
+                <div id=useCasesContent class="tabbed-content">
+                  <h2>Use Cases</h2>
+                  <ul class="collapsible">
+                    <li>
+                      <a class="anchor" id=useCases-stop-plugin></a>
+                      <input type="checkbox" id=useCases-stop-pluginDescription />
+                      <label for=useCases-stop-pluginDescription>Stop a plugin which is causing errors/duping on the server</label>
+                      <p>If a plugin is causing grief of any kind, use the <span class="code">/disable</span> command to stop it immediately without the Player's on the server being interupted at all.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-reload-plugin></a>
+                      <input type="checkbox" id=useCases-reload-pluginDescription />
+                      <label for=useCases-reload-pluginDescription>Reload config or save files of a plugin</label>
+                      <p>If a plugin does not have a reload command then you normally have to stop and reload the entire server which usually kicks off all Player's who are currently online. Using <span class="code">/prl</span> you can reload the individual plugin in the backround without anybody being bothered.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-fly-fast></a>
+                      <input type="checkbox" id=useCases-fly-fastDescription />
+                      <label for=useCases-fly-fastDescription>Fly around faster than normally possible</label>
+                      <p>You can set the speed of your flight with the <span class="code">/fly</span> command. You can travel around your world in a flash.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-declutter-chat></a>
+                      <input type="checkbox" id=useCases-declutter-chatDescription />
+                      <label for=useCases-declutter-chatDescription>Allow private messaging to declutter everyone's chat</label>
+                      <p>You can allow the Players of your server to use <span class="code">/w</span> and <span class="code">/re</span> to talk to each other. That way their conversations are kept private and don't bother other people.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-heal></a>
+                      <input type="checkbox" id=useCases-healDescription />
+                      <label for=useCases-healDescription>Fully heal with a single command</label>
+                      <p>If you are low on health, you would typically have to switch to creative mode so that you can spawn some food or a health potion. <span class="code">/heal</span> will instantly heal and feed you or another Player.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-spy></a>
+                      <input type="checkbox" id=useCases-spyDescription />
+                      <label for=useCases-spyDescription>Reclaim duped or stolen items</label>
+                      <p>The <span class="code">/spy</span> command allows you to look at another Player's inventory. Once you are viewing it you can see if they are lying about stealling an item or taking advantage of a glitch to duplicate items. You can even grab the items from the inventory to give them back to their rightful owner or destroy them.</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=useCases-ban></a>
+                      <input type="checkbox" id=useCases-banDescription />
+                      <label for=useCases-banDescription>Warn griefers with a temporary ban</label>
+                      <p>Use the <span class="code">/ban</span> command to temporarily kick a Player off of the server. Once their sentence expires, they will be able to log back on and hopefully not make the same mistake again.</p>
+                    </li>
+                  </ul>
+                </div>
+                <div id=tutorialsContent class="tabbed-content">
+                  <h2>Tutorials</h2>
+                  <a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?entry.1385340767&entry.977155092&entry.160980013=Tutorial+requested+for+Shortcuts&entry.1043596531=Bukkit+Plugin+Usage&entry.977932849">Request a tutorial</a>
+                  <ul class="collapsible">
+                    <li>
+                      <a class="anchor" id=tutorials-spy></a>
+                      <input type="checkbox" id=tutorials-spyDescription />
+                      <label for=tutorials-spyDescription>Spy on a Player's Inventory</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                    <li>
+                      <a class="anchor" id=tutorials-ban></a>
+                      <input type="checkbox" id=tutorials-banDescription />
+                      <label for=tutorials-banDescription>Ban a Player permanently or temporarily</label>
+                      <p>Tutorial to come...</p>
+                    </li>
+                  </ul>
+                </div>
+                <div id=faqContent class="tabbed-content">
+                  <h2>FAQ</h2>
+                  <a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?entry.1385340767&entry.977155092&entry.160980013=Question+regarding+Shortcuts&entry.1043596531=Bukkit+Plugin+Usage&entry.977932849">Ask a question</a>
+                  <ul class="collapsible">
+                    <li>
+                      <a class="anchor" id=faq-feature-request></a>
+                      <input type="checkbox" id=faq-feature-requestDescription />
+                      <label for=faq-feature-requestDescription>Can you add x?</label>
+                      <p>Yes! I will add most feature requests. Just create a ticket and I will get around to it when I have time.</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id=contentNavigation>
+                <ul id=tabList>
+                  <li><a id=mainPageTab class="button tab current-tab" href="#mainPage">Main Page</a></li>
+                  <li><a id=commandsTab class="button tab" href="#commands">Commands</a></li>
+                  <li><a id=permissionsTab class="button tab" href="#permissions">Permissions</a></li>
+                  <li><a id=useCasesTab class="button tab" href="#useCases">Use Cases</a></li>
+                  <li><a id=tutorialsTab class="button tab" href="#tutorials">Tutorials</a></li>
+                  <li><a id=faqTab class="button tab" href="#faq">FAQ</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id=bottomButtonBar class="flex-container">
+              <a class="button" href="https://github.com/Codisimus/Shortcuts/issues/new">Submit a Ticket</a>
+              <a class="button" href="https://github.com/Codisimus/Shortcuts">Source Code</a>
+              <a class="button" href="http://codisimus.github.io/Shortcuts/javadoc/index.html">Javadocs</a>
+              <a class="button" href="https://github.com/Codisimus/Shortcuts/releases">Dev Builds</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="main-column">
+      <div class="flex-container">
+        <img src="images/aboutmepic.jpg" alt="About Me">
+        <div class="content">
+          <p>Hi, my name is Cody M. Sommer. I am 24 years old and live near Rochester, NY with my wife Ella and my daughter Hazel. I have earned my bachelors degree in Computer Science at SUNY Brockport and I currently work for Thomson Reuters.</p>
+          <p>In my spare time I enjoy programming, making videos/music, and playing games. Online, I go by the alias Codisimus and I am most known for my Minecraft server plugins. I have written several Bukkit plugins including ButtonWarp and PhatLoots. I have also done private work for some large public servers. I love programming for Minecraft and I have even written a book instructing others how to do the same. Sadly, I do not do private work or plugin requests anymore. However, if you are willing to buy my book and try to create a plugin yourself I will try to answer any questions that you have about Bukkit or developing with it.</p>
+        </div>
+        <iframe id=contactForm src="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform?embedded=true"><a href="https://docs.google.com/forms/d/1DNgMRUsp9qsOyijMnxu9p-OwZ_F2notnQ7-19lxxo-s/viewform">Loading contact form...</a></iframe>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
