@@ -1,0 +1,19 @@
+select {
+  width: 17vw;
+  height: 17vw;
+  white-space: pre-wrap;
+  vertical-align: middle;
+  border-width: 2px;
+  padding: 5px;
+  font-size: 12pt;
+}
+
+select.readOnly {
+  -webkit-appearance: none;
+  color: black;
+  border-color: black;
+}
+
+select.duplicate {
+  background-color: darkred;
+}
