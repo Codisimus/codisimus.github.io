@@ -2,11 +2,18 @@ function onPageLoad() {
   navigateToHash();
 };
 
+function setBrand(brand) {
+  for (var i = 1; i <= 25; i++) {
+    var select = document.getElementById(i);
+    select.options.namedItem("x").label.replace("{Insert Brand}", brand);
+  }
+}
+
 function fillBoard() {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
-	while (!select.value || duplicateCheck(i)) {
-	  var items = select.getElementsByTagName('option');
+    while (!select.value || duplicateCheck(i)) {
+      var items = select.getElementsByTagName('option');
       var index = Math.floor(Math.random() * items.length);
       select.selectedIndex = index;
     }
@@ -51,10 +58,6 @@ function validateForm() {
     if (duplicateCheck(i)) {
       foundDuplicates = true;
     }
-    var select = document.getElementById(i);
-    if (select.value.contains("{Insert Brand}") {
-        
-    }
   }
   if (foundDuplicates) {
     alert("You must not use the same value for multiple spaces");
@@ -63,6 +66,10 @@ function validateForm() {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
     select.classList.remove("duplicate");
+    if (select.value.contains("{Insert Brand}") {
+      alert("You must enter a brand in the field below the board");
+      return false;
+    }
   }
   return true;
 };
