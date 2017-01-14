@@ -7,7 +7,7 @@ function setBrand(brand) {
     var select = document.getElementById(i);
     select.options.namedItem("x").label.replace("{Insert Brand}", brand);
   }
-}
+};
 
 function fillBoard() {
   for (var i = 1; i <= 25; i++) {
