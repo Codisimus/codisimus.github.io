@@ -66,7 +66,7 @@ function validateForm() {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
     select.classList.remove("duplicate");
-    if (select.value.contains("{Insert Brand}") {
+    if (select.value.contains("{Insert Brand}")) {
       alert("You must enter a brand in the field below the board");
       return false;
     }
