@@ -15,5 +15,5 @@ select.readOnly {
 }
 
 select.duplicate {
-  background-color: darkred;
+  background-color: red;
 }
