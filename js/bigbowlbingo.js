@@ -30,9 +30,10 @@ function generateHash() {
   window.location.hash = hash;
   var input = document.getElementById("brand");
   if (input.value) {
-    var index = window.location.indexOf("?");
-    var baseUrl = index === -1 ? window.location : windows.location.substring(index);
-    window.location = baseUrl + "?" + input.value;
+    var href = window.location.href;
+    var index = href.indexOf("?");
+    var baseUrl = index === -1 ? href : href.substring(index);
+    window.location.href = baseUrl + "?" + input.value;
   }
 };
 
@@ -60,7 +61,7 @@ function resetHash() {
     if (index === -1) {
       location.reload();
     } else {
-      window.location = windows.location.substring(index);
+      window.location.href = windows.location.href.substring(index);
     }
   }
 };
