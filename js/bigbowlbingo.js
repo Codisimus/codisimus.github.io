@@ -5,8 +5,9 @@ function onPageLoad() {
 function setBrand(brand) {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
-    var option = select.options.namedItem("brand");
-    option.label = option.label.replace("{Insert brand}", brand);
+    var option = select.options[33];
+    option.label = "Ad for " + brand;
+    select.options[33] = option;
   }
 };
 
