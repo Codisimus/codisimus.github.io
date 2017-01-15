@@ -67,7 +67,7 @@ function validateForm() {
     var select = document.getElementById(i);
     select.classList.remove("duplicate");
     var option = select.options[select.selectedIndex];
-    if (option.text.contains("{Insert Brand}")) {
+    if (option.text.includes("{Insert Brand}")) {
       alert("You must enter a brand in the field below the board");
       return false;
     }
