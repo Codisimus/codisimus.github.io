@@ -32,7 +32,7 @@ function generateHash() {
   if (input.value) {
     var href = window.location.href;
     var index = href.indexOf("?");
-    var baseUrl = index === -1 ? href : href.substring(index);
+    var baseUrl = index === -1 ? href : href.substring(0, index);
     window.location.href = baseUrl + "?" + input.value;
   }
 };
@@ -61,7 +61,7 @@ function resetHash() {
     if (index === -1) {
       location.reload();
     } else {
-      window.location.href = windows.location.href.substring(index);
+      window.location.href = windows.location.href.substring(0, index);
     }
   }
 };
