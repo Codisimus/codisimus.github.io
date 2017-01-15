@@ -5,7 +5,7 @@ function onPageLoad() {
 function setBrand(brand) {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
-    select.options.namedItem("brand").label.replace("{Insert Brand}", brand);
+    select.options.namedItem("brand").label.replace("{Insert brand}", brand);
   }
 };
 
@@ -67,7 +67,7 @@ function validateForm() {
     var select = document.getElementById(i);
     select.classList.remove("duplicate");
     var option = select.options[select.selectedIndex];
-    if (option.text.includes("{Insert Brand}")) {
+    if (option.text.includes("{Insert brand}")) {
       alert("You must enter a brand in the field below the board");
       return false;
     }
