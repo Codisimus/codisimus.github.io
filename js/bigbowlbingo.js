@@ -6,7 +6,7 @@ function setBrand(brand) {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
     var option = select.options[33];
-    option.label = "Ad for " + brand;
+    option.innerText = "Ad for " + brand;
     select.options[33] = option;
   }
 };
