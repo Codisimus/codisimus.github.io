@@ -15,7 +15,7 @@ function fillBoard() {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
     while (!select.value || duplicateCheck(i)) {
-      var items = select.getElementsByTagName('option');
+      var items = select.getElementsByTagName("option");
       var index = Math.floor(Math.random() * items.length);
       select.selectedIndex = index;
     }
@@ -28,6 +28,12 @@ function generateHash() {
     hash += document.getElementById(i).value;
   }
   window.location.hash = hash;
+  var input = document.getElementById("brand");
+  if (input.value) {
+    var index = window.location.indexOf("?");
+    var baseUrl = index === -1 ? window.location : windows.location.substring(index);
+    window.location = baseUrl + "?" + input.value;
+  }
 };
 
 function navigateToHash() {
@@ -50,7 +56,12 @@ function resetHash() {
   var hash = window.location.hash;
   if (hash.length === 26) {
     window.location.hash = "";
-    location.reload();
+    var index = window.location.indexOf("?");
+    if (index === -1) {
+      location.reload();
+    } else {
+      window.location = windows.location.substring(index);
+    }
   }
 };
 
