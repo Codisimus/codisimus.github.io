@@ -6,7 +6,7 @@ function setBrand(brand) {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
     var option = select.options.namedItem("brand");
-    option.label.replace("{Insert brand}", brand);
+    option.label = option.label.replace("{Insert brand}", brand);
   }
 };
 
