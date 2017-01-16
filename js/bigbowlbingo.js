@@ -105,11 +105,13 @@ function validateForm() {
 
 function duplicateCheck(id) {
   var select = document.getElementById(id);
-  for (var i = 1; i <= 25; i++) {
-    var otherSelect = document.getElementById(i);
-    if (i != id && otherSelect.value === select.value) {
-        select.classList.add("duplicate");
-        return true;
+  if (select.value) {
+    for (var i = 1; i <= 25; i++) {
+      var otherSelect = document.getElementById(i);
+      if (i != id && otherSelect.value === select.value) {
+          select.classList.add("duplicate");
+          return true;
+      }
     }
   }
   select.classList.remove("duplicate");
