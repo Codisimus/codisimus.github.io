@@ -28,13 +28,14 @@ function generateHash() {
   for (var i = 1; i <= 25; i++) {
     hash += document.getElementById(i).value;
   }
-  window.location.hash = hash;
   var input = document.getElementById("brand");
   if (input.value) {
     var href = window.location.href;
     var index = href.indexOf("?");
     var baseUrl = index === -1 ? href : href.substring(0, index);
-    window.location.href = baseUrl + "?" + input.value;
+    window.location.href = baseUrl + "?" + input.value + hash;
+  } else {
+    window.location.hash = hash;
   }
 };
 
