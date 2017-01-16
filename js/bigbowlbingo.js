@@ -20,6 +20,7 @@ function fillBoard() {
       select.selectedIndex = index;
     }
   }
+  checkForBrandSpace();
 };
 
 function generateHash() {
