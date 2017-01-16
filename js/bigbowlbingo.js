@@ -66,6 +66,18 @@ function resetHash() {
   }
 };
 
+function checkForBrandSpace() {
+  var input = document.getElementById("brand");
+  for (var i = 1; i <= 25; i++) {
+    var select = document.getElementById(i);
+    if (select.selectedIndex === 33) {
+      input.setAttribute("required", "required");
+      return;
+    }
+  }
+  input.removeAttribute("required");
+};
+
 function validateForm() {
   var foundDuplicates = false;
   for (var i = 1; i <= 25; i++) {
@@ -80,11 +92,6 @@ function validateForm() {
   for (var i = 1; i <= 25; i++) {
     var select = document.getElementById(i);
     select.classList.remove("duplicate");
-    var option = select.options[select.selectedIndex];
-    if (option.text.includes("{Insert brand}")) {
-      alert("You must enter a brand in the field below the board");
-      return false;
-    }
   }
   return true;
 };
