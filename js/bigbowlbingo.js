@@ -57,11 +57,12 @@ function resetHash() {
   var hash = window.location.hash;
   if (hash.length === 26) {
     window.location.hash = "";
-    var index = window.location.indexOf("?");
+    var href = window.location.href;
+    var index = href.indexOf("?");
     if (index === -1) {
-      location.reload();
+      window.location.reload();
     } else {
-      window.location.href = windows.location.href.substring(0, index);
+      window.location.href = href.substring(0, index);
     }
   }
 };
