@@ -7,6 +7,14 @@
 <body onload="onPageLoad();" onhashchange="navigateToHash();">
   <form onsubmit="if (validateForm()) generateHash()" onreset="resetHash()">
   <div>
+    <span id="createButtonsSpan">
+      <button type="button" id="fill" title="Randomly fill the remaining spaces on the board" onclick="fillBoard()">Fill Board</button>
+      <label for="brand">Brand Name:</label>
+      <input type="text" id="brand" title="Enter a brand that you expect to be advertised. i.e. Doritos, Bud Light, Hyundia" onchange="setBrand(this.value)">
+      <input type="submit" id="submit" title="Save the board selections in preparation for play" value="Generate Board">
+    </span>
+  </div>
+  <div>
     <select required id="1" onmousedown="return handleReadOnly(this)" onchange="onSpaceChange(this.id)">
       <option value=""></option>
       <option value="1">Muffed kick/punt return</option>
@@ -947,12 +955,6 @@
     </select>
   </div>
   <div>
-    <span id="createButtonsSpan">
-      <button type="button" id="fill" title="Randomly fill the remaining spaces on the board" onclick="fillBoard()">Fill Board</button>
-      <label for="brand">Brand Name:</label>
-      <input type="text" id="brand" title="Enter a brand that you expect to be advertised. i.e. Doritos, Bud Light, Hyundia" onchange="setBrand(this.value)">
-      <input type="submit" id="submit" title="Save the board selections in preparation for play" value="Generate Board">
-    </span>
     <input type="reset" title="Clear all spaces on the board">
   </div>
   </form>
