@@ -30,13 +30,8 @@ function generateHash() {
   }
   var input = document.getElementById("brand");
   if (input.value) {
-    var href = window.location.href;
-    var index = href.indexOf("?");
-    var baseUrl = index === -1 ? href : href.substring(0, index);
-    window.location.href = baseUrl + "?" + input.value + hash;
-  } else {
-    window.location.hash = hash;
-  }
+    hash += "(" + input.value + ")";
+  window.location.hash = hash;
 };
 
 function navigateToHash() {
@@ -58,6 +53,12 @@ function navigateToHash() {
       node = document.createTextNode("Brand: " + input.value);
       button.parentNode.appendChild(node);
     }
+  } else if (hash.length > 26) {
+    var endIndex = hash.length - 1;
+    if (hash.charAt(26) === "(" && hash.charAt(endIndex) === ")") {
+      var brand = hash.substring(26, endIndex);
+      setBrand(brand);
+    }
   }
 };
 
@@ -65,13 +66,7 @@ function resetHash() {
   var hash = window.location.hash;
   if (hash.length === 26) {
     window.location.hash = "";
-    var href = window.location.href;
-    var index = href.indexOf("?");
-    if (index === -1) {
-      window.location.reload();
-    } else {
-      window.location.href = href.substring(0, index);
-    }
+    window.location.reload();
   }
 };
 
