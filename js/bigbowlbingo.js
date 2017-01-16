@@ -66,6 +66,11 @@ function resetHash() {
   }
 };
 
+function onSpaceChange(id) {
+  duplicateCheck(id);
+  checkForBrandSpace();
+}
+
 function checkForBrandSpace() {
   var input = document.getElementById("brand");
   for (var i = 1; i <= 25; i++) {
