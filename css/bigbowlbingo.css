@@ -17,7 +17,3 @@ select.readOnly {
 select.duplicate {
   background-color: red;
 }
-
-input, button, label {
-  font-size: 20pt;
-}
