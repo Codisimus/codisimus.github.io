@@ -31,6 +31,7 @@ function generateHash() {
   var input = document.getElementById("brand");
   if (input.value) {
     hash += "(" + input.value + ")";
+  }
   window.location.hash = hash;
 };
 
@@ -73,7 +74,7 @@ function resetHash() {
 function onSpaceChange(id) {
   duplicateCheck(id);
   checkForBrandSpace();
-}
+};
 
 function checkForBrandSpace() {
   var input = document.getElementById("brand");
@@ -111,8 +112,8 @@ function duplicateCheck(id) {
     for (var i = 1; i <= 25; i++) {
       var otherSelect = document.getElementById(i);
       if (i != id && otherSelect.value === select.value) {
-          select.classList.add("duplicate");
-          return true;
+        select.classList.add("duplicate");
+        return true;
       }
     }
   }
