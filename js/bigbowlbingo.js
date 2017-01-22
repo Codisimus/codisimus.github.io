@@ -64,11 +64,6 @@ function navigateToHash() {
     var button = document.getElementById("reset");
     var node = document.createTextNode("Board ID: " + hash.substring(1));
     button.parentNode.appendChild(node);
-    var input = document.getElementById("brand");
-    if (input.value) {
-      node = document.createTextNode("Brand: " + input.value);
-      button.parentNode.appendChild(node);
-    }
   }
 };
 
