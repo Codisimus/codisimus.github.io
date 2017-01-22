@@ -5,7 +5,7 @@ select {
   vertical-align: middle;
   border-width: 2px;
   padding: 5px;
-  font-size: 2vw;
+  font-size: 4vw;
 }
 
 select.readOnly {
