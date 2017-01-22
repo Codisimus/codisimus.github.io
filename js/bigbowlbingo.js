@@ -1,18 +1,21 @@
+var bingoBoardSize = 25;
+var brandOptionIndex = 33;
+
 function onPageLoad() {
   navigateToHash();
 };
 
 function setBrand(brand) {
-  for (var i = 1; i <= 25; i++) {
+  for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
-    var option = select.options[33];
+    var option = select.options[brandOptionIndex];
     option.innerText = "Ad for " + brand;
-    select.options[33] = option;
+    select.options[brandOptionIndex] = option;
   }
 };
 
 function fillBoard() {
-  for (var i = 1; i <= 25; i++) {
+  for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
     while (!select.value || duplicateCheck(i)) {
       var items = select.getElementsByTagName("option");
@@ -25,7 +28,7 @@ function fillBoard() {
 
 function generateHash() {
   var hash = "#";
-  for (var i = 1; i <= 25; i++) {
+  for (var i = 1; i <= bingoBoardSize; i++) {
     hash += document.getElementById(i).value;
   }
   var input = document.getElementById("brand");
@@ -37,9 +40,19 @@ function generateHash() {
 
 function navigateToHash() {
   var hash = window.location.hash;
-  if (hash.length === 26) {
+  if (hash > 0) {
+    hash = hash.substring(1);
+  }
+  if (hash.length > bingoBoardSize) {
+    var endIndex = hash.length - 1;
+    if (hash.charAt(bingoBoardSize) === "(" && hash.charAt(endIndex) === ")") {
+      var brand = hash.substring(bingoBoardSize + 1, endIndex);
+      setBrand(brand);
+    }
+  }
+  if (hash.length >= bingoBoardSize) {
     var charArray = hash.split("");
-    for (var i = 1; i <= 25; i++) {
+    for (var i = 1; i <= bingoBoardSize; i++) {
       var select = document.getElementById(i);
       select.value = charArray[i];
       select.classList.add("readOnly");
@@ -54,18 +67,12 @@ function navigateToHash() {
       node = document.createTextNode("Brand: " + input.value);
       button.parentNode.appendChild(node);
     }
-  } else if (hash.length > 26) {
-    var endIndex = hash.length - 1;
-    if (hash.charAt(26) === "(" && hash.charAt(endIndex) === ")") {
-      var brand = hash.substring(26, endIndex);
-      setBrand(brand);
-    }
   }
 };
 
 function resetHash() {
   var hash = window.location.hash;
-  if (hash.length === 26) {
+  if (hash.length > 1) {
     window.location.hash = "";
     window.location.reload();
   }
@@ -78,9 +85,9 @@ function onSpaceChange(id) {
 
 function checkForBrandSpace() {
   var input = document.getElementById("brand");
-  for (var i = 1; i <= 25; i++) {
+  for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
-    if (select.selectedIndex === 33) {
+    if (select.selectedIndex === brandOptionIndex) {
       input.setAttribute("required", "required");
       return;
     }
@@ -90,7 +97,7 @@ function checkForBrandSpace() {
 
 function validateForm() {
   var foundDuplicates = false;
-  for (var i = 1; i <= 25; i++) {
+  for (var i = 1; i <= bingoBoardSize; i++) {
     if (duplicateCheck(i)) {
       foundDuplicates = true;
     }
@@ -99,7 +106,7 @@ function validateForm() {
     alert("You must not use the same value for multiple spaces");
     return false;
   }
-  for (var i = 1; i <= 25; i++) {
+  for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
     select.classList.remove("duplicate");
   }
@@ -109,7 +116,7 @@ function validateForm() {
 function duplicateCheck(id) {
   var select = document.getElementById(id);
   if (select.value) {
-    for (var i = 1; i <= 25; i++) {
+    for (var i = 1; i <= bingoBoardSize; i++) {
       var otherSelect = document.getElementById(i);
       if (i != id && otherSelect.value === select.value) {
         select.classList.add("duplicate");
