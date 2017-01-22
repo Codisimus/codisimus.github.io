@@ -17,10 +17,12 @@ function setBrand(brand) {
 function fillBoard() {
   for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
-    while (!select.value || duplicateCheck(i)) {
-      var items = select.getElementsByTagName("option");
-      var index = Math.floor(Math.random() * items.length);
-      select.selectedIndex = index;
+    if (!select.value) {
+      while (!select.value || duplicateCheck(i)) {
+        var items = select.getElementsByTagName("option");
+        var index = Math.floor(Math.random() * items.length);
+        select.selectedIndex = index;
+      }
     }
   }
   checkForBrandSpace();
