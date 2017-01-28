@@ -54,7 +54,7 @@ function navigateToHash() {
   }
   if (hash.length >= bingoBoardSize) {
     var charArray = hash.split("");
-    for (var i = 1; i <= bingoBoardSize; i++) {
+    for (var i = 0; i < bingoBoardSize; i++) {
       var select = document.getElementById(i);
       select.value = charArray[i];
       select.classList.add("readOnly");
