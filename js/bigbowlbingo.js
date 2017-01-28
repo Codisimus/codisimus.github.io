@@ -42,7 +42,7 @@ function generateHash() {
 
 function navigateToHash() {
   var hash = window.location.hash;
-  if (hash > 0) {
+  if (hash.length > 0) {
     hash = hash.substring(1);
   }
   if (hash.length > bingoBoardSize) {
