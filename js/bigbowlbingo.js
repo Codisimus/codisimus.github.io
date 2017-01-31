@@ -61,6 +61,8 @@ function navigateToHash() {
     }
     var span = document.getElementById("createButtonsSpan");
     span.style.display = "none";
+    span = document.getElementById("brandNameSpan");
+    span.style.display = "none";
     var button = document.getElementById("reset");
     var node = document.createTextNode("Board ID: " + hash.substring(1));
     button.parentNode.appendChild(node);
