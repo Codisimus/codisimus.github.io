@@ -9,9 +9,7 @@
   <form onsubmit="if (validateForm()) generateHash()" onreset="resetHash()">
   <div>
     <span id="createButtonsSpan">
-      <button type="button" id="fill" title="Randomly fill the remaining spaces on the board" onclick="fillBoard()">Fill Board</button>
-      <label for="brand">Brand Name:</label>
-      <input type="text" id="brand" title="Enter a brand that you expect to be advertised. i.e. Doritos, Bud Light, Hyundia" onchange="setBrand(this.value)">
+      <button type="button" id="fill" title="Randomly fill the remaining spaces on the board" onclick="fillBoard()">Auto-fill Board</button>
       <input type="submit" id="submit" title="Save the board selections in preparation for play" value="Generate Board">
     </span>
   </div>
@@ -954,6 +952,12 @@
       <option value="y">Ad with an animal as the main character</option>
       <option value="z">Ad with something that can talk which normally cannot</option>
     </select>
+  </div>
+  <div>
+    <span id="brandNameSpan">
+      <label for="brand">Brand Name:</label>
+      <input type="text" id="brand" title="Enter a brand that you expect to be advertised. i.e. Doritos, Bud Light, Hyundia" onchange="setBrand(this.value)">
+    </span>
   </div>
   <div>
     <input type="reset" id="reset" title="Clear all spaces on the board" onclick="return confirm('Are you sure you want to clear the entire board so that you can create a new one?\n\nIf you wish to start a new round of bingo, simply refresh the page.')">
