@@ -54,11 +54,11 @@ function navigateToHash() {
     }
   }
   if (hash.length >= bingoBoardSize) {
-    setReadyOnly(true);
+    setReadOnly(true);
   }
 };
 
-function setReadyOnly(readOnly) {
+function setReadOnly(readOnly) {
   var charArray = window.location.hash.split("");
   for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
