@@ -76,7 +76,7 @@ function setReadyOnly(readOnly) {
   var button = document.getElementById("edit");
   button.style.display = readOnly ? "inline" : "none";
   var text = document.getElementById("boardID");
-  text.setTextContent(readOnly ? ("Board ID: " + hash.substring(1)) : "");
+  text.setTextContent(readOnly ? ("Board ID: " + window.location.hash.substring(1)) : "");
 };
 
 function resetHash() {
