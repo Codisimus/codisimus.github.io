@@ -17,3 +17,7 @@ select.readOnly {
 select.duplicate {
   background-color: red;
 }
+
+#boardID {
+  margin: 0;
+}
