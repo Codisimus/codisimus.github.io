@@ -64,9 +64,9 @@ function setReadOnly(readOnly) {
     var select = document.getElementById(i);
     select.value = charArray[i];
     if (readOnly) {
-      select.classList.remove("readOnly");
-    } else {
       select.classList.add("readOnly");
+    } else {
+      select.classList.remove("readOnly");
     }
   }
   var span = document.getElementById("createButtonsSpan");
