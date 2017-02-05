@@ -12,6 +12,7 @@ function setBrand(brand) {
     option.innerText = "Ad for " + brand;
     select.options[brandOptionIndex] = option;
   }
+  document.getElementById("brand").value = brand;
 };
 
 function fillBoard() {
@@ -53,20 +54,29 @@ function navigateToHash() {
     }
   }
   if (hash.length >= bingoBoardSize) {
-    var charArray = window.location.hash.split("");
-    for (var i = 1; i <= bingoBoardSize; i++) {
-      var select = document.getElementById(i);
-      select.value = charArray[i];
+    setReadyOnly(true);
+  }
+};
+
+function setReadyOnly(readOnly) {
+  var charArray = window.location.hash.split("");
+  for (var i = 1; i <= bingoBoardSize; i++) {
+    var select = document.getElementById(i);
+    select.value = charArray[i];
+    if (readOnly) {
+      select.classList.remove("readOnly");
+    } else {
       select.classList.add("readOnly");
     }
-    var span = document.getElementById("createButtonsSpan");
-    span.style.display = "none";
-    span = document.getElementById("brandNameSpan");
-    span.style.display = "none";
-    var button = document.getElementById("reset");
-    var node = document.createTextNode("Board ID: " + hash.substring(1));
-    button.parentNode.appendChild(node);
   }
+  var span = document.getElementById("createButtonsSpan");
+  span.style.display = readOnly ? "none" : "inline";
+  span = document.getElementById("brandNameSpan");
+  span.style.display = readOnly ? "none" : "inline";
+  var button = document.getElementById("edit");
+  button.style.display = readOnly ? "inline" : "none";
+  var text = document.getElementById("boardID");
+  text.setTextContent(readOnly ? ("Board ID: " + hash.substring(1)) : "");
 };
 
 function resetHash() {
