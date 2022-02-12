@@ -38,6 +38,7 @@ function generateHash() {
   if (input.value) {
     hash += "(" + input.value + ")";
   }
+  window.onbeforeunload = null;
   window.location.hash = hash;
 };
 
