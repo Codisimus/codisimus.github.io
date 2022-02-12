@@ -5,7 +5,7 @@
   <script src="js/bigbowlbingo.js"></script>
   <meta name=viewport content="width=device-width">
 </head>
-<body onload="onPageLoad();" onhashchange="navigateToHash();">
+<body onload="onPageLoad();" onhashchange="navigateToHash();" onbeforeunload="return true;">
   <form onsubmit="if (validateForm()) generateHash()" onreset="resetHash()">
   <div>
     <span id="createButtonsSpan">
