@@ -40,6 +40,7 @@ function generateHash() {
   }
   window.onbeforeunload = null;
   window.location.hash = hash;
+  window.location.reload();
 };
 
 function navigateToHash() {
