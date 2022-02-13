@@ -2,7 +2,12 @@ var bingoBoardSize = 25;
 var brandOptionIndex = 33;
 
 function onPageLoad() {
-  navigateToHash();
+  if (window.location.search === "?random") {
+    fillBoard();
+    generateHash();
+  } else {
+    navigateToHash();
+  }
 };
 
 function setBrand(brand) {
@@ -46,11 +51,6 @@ function navigateToHash() {
   var hash = window.location.hash;
   if (hash.length > 0) {
     hash = hash.substring(1);
-  }
-  if (hash === "random") {
-    fillBoard();
-    generateHash();
-    return;
   }
   if (hash.length > bingoBoardSize) {
     var endIndex = hash.length - 1;
