@@ -19,14 +19,13 @@ function fillBoard() {
   for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
     if (!select.value) {
-      while (!select.value || duplicateCheck(i)) {
+      while (!select.value || duplicateCheck(i) || index != brandOptionIndex) {
         var items = select.getElementsByTagName("option");
         var index = Math.floor(Math.random() * items.length);
         select.selectedIndex = index;
       }
     }
   }
-  checkForBrandSpace();
 };
 
 function generateHash() {
