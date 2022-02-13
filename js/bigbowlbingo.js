@@ -2,7 +2,7 @@ var bingoBoardSize = 25;
 var brandOptionIndex = 33;
 
 function onPageLoad() {
-  if (window.location.hash > 1) {
+  if (window.location.hash.length > 1) {
     navigateToHash();
   } else if (window.location.search === "?random") {
     fillBoard();
