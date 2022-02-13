@@ -19,7 +19,7 @@ function fillBoard() {
   for (var i = 1; i <= bingoBoardSize; i++) {
     var select = document.getElementById(i);
     if (!select.value) {
-      while (!select.value || duplicateCheck(i) || select.selectedIndex == brandOptionIndex) {
+      while (!select.value || duplicateCheck(i) || select.selectedIndex === brandOptionIndex) {
         var items = select.getElementsByTagName("option");
         var index = Math.floor(Math.random() * items.length);
         select.selectedIndex = index;
@@ -46,6 +46,11 @@ function navigateToHash() {
   var hash = window.location.hash;
   if (hash.length > 0) {
     hash = hash.substring(1);
+  }
+  if (hash === "random") {
+    fillBoard();
+    generateHash();
+    return;
   }
   if (hash.length > bingoBoardSize) {
     var endIndex = hash.length - 1;
