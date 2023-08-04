@@ -178,6 +178,12 @@ table, th, td {
   border: 1px solid white;
 }
 
+.icon {
+  margin: 5px;
+  height: auto;
+  width: 30px;
+}
+
 .banner {
   margin: 5px;
   height: 175px;
@@ -264,7 +270,7 @@ footer {
   bottom: 0px;
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 300px;
+  height: 200px;
   background: #370005;
 }
 
@@ -279,5 +285,9 @@ footer .content {
 
 footer .content p {
   padding-left: 15px;
-  padding-right: 30px;
+  padding-right: 5px;
+}
+
+.socials {
+  width: 120px
 }
