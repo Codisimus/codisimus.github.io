@@ -77,33 +77,6 @@ nav a:active {
   color: #C1272D;
 }
 
-aside {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  top: 185px;
-  left: 0px;
-}
-
-aside div {
-  height: 100px;
-}
-
-.sidebar-label {
-  background: #4B0005;
-  
-  /* Safari */
-  -webkit-transform: rotate(-90deg);
-  /* Firefox */
-  -moz-transform: rotate(-90deg);
-  /* IE */
-  -ms-transform: rotate(-90deg);
-  /* Opera */
-  -o-transform: rotate(-90deg);
-  /* Internet Explorer */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-}
-
 #wrapper {
   position: relative;
   top: 200px;
