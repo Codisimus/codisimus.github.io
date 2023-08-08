@@ -2,12 +2,11 @@
   <link rel="shortcut icon" href="images/favicon.ico"/>
   <title>News</title>
   <link rel=stylesheet type=text/css href="css/main.css">
-  <link rel=stylesheet type=text/css href="css/news.css">
   <link rel=stylesheet href="http://fonts.googleapis.com/css?family=Ubuntu+Condensed" media=all>
   <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
   <script src="js/posts.js"></script>
 </head>
-<body onload="loadPosts();">
+<body onload="loadSinglePost();">
   <header class="main-column">
     <p id=headerName>Cody M. Sommer</p>
     <p id=headerAka>AKA Codisimus</p>
@@ -24,30 +23,8 @@
     <main>
       <div class="main-column">
         <div class="flex-container">
-          <div id="posts" class="content-column content">
-            <h2>Recent Posts</h2>
-            <div id="post1" class="post"></div>
-            <div id="post2" class="post"></div>
-            <div id="post3" class="post"></div>
-            <div id="post4" class="post"></div>
-            <div id="post5" class="post"></div>
-          </div>
-        </div>
-      </div>
-      <div class="main-column">
-        <div class="flex-container">
           <div class="content-column content">
-            <h2>Latest Uploads</h2>
-            <p>
-              Here you will find my latest uploads including videos, music, images, documents, and software.
-            </p>
-            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@codisimus/video/7162192782713687342" data-video-id="7162192782713687342" > <section> <a title="dayz" target="_blank" href="https://www.tiktok.com/tag/dayz?refer=embed">#dayz</a> <a title="snipe" target="_blank" href="https://www.tiktok.com/tag/snipe?refer=embed">#snipe</a> <a title="namalsk" target="_blank" href="https://www.tiktok.com/tag/namalsk?refer=embed">#namalsk</a> <a title="mosin" target="_blank" href="https://www.tiktok.com/tag/mosin?refer=embed">#mosin</a> <a target="_blank" title="♬ original sound - Cod" href="https://www.tiktok.com/music/original-sound-7162192815106132782?refer=embed">♬ original sound - Cod</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-          </div>
-          <div class="content-column content">
-            <a class="twitter-timeline" href="https://twitter.com/Codisimus" data-widget-id="682308293096779776">Tweets by @Codisimus</a>
-            <script>
-              !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            </script>
+            <div id="post" class="post"></div>
           </div>
         </div>
       </div>
