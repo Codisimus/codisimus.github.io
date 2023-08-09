@@ -14,7 +14,7 @@ First and foremost, while it should be a given, too much web content out there i
 There is a wide variety of *readers* of modern-day web pages. As a developer, you must accommodate people who have varying *access* to the content. Some of those variations are physical such as the inability to distinguish certain colors and some are technical such as consuming content through a smart speaker rather than a computer screen. Even if humans are able to make sense of what is being presented, computers may struggle a bit more.
 
 This is my plea to all developers to pay attention and care about accessibility when writing your code. As a reward, your content will be more properly handled by other code. As an example, here is what Bing presents when I search for **PhatLoots**.
-![PhatLoots Presented by Bing](http://codisimus.com/images/Bing%20Presented%20by%20Bing.png)
+![PhatLoots Presented by Bing](http://codisimus.com/images/PhatLoots%20Presented%20by%20Bing.png)
 Notice how Bing is able to dynamically read the content from my page and present it in its own compressed, yet very intuitive, format.
 
 ## Hosting
