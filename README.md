@@ -1,5 +1,5 @@
 # Welcome to my Website!
-Hi all, this is my website. Nothing too fancy, just a place for me to share my content. As mentioned over on the [Projects](https://codisimus.com/projects) page, this website serves as a proof of concept for various HTML/CSS tricks. The purpose of this post is to dive into those details.
+Hi all, this is my website. Nothing too fancy, just a place for me to share my content. As mentioned over on the [Projects](http://codisimus.com/projects) page, this website serves as a proof of concept for various HTML/CSS tricks. The purpose of this post is to dive into those details.
 
 ## Accessibility
 First and foremost, while it should be a given, too much web content out there is not formatted properly. It ignores things such as:
@@ -14,17 +14,17 @@ First and foremost, while it should be a given, too much web content out there i
 There is a wide variety of *readers* of modern-day web pages. As a developer, you must accommodate people who have varying *access* to the content. Some of those variations are physical such as the inability to distinguish certain colors and some are technical such as consuming content through a smart speaker rather than a computer screen. Even if humans are able to make sense of what is being presented, computers may struggle a bit more.
 
 This is my plea to all developers to pay attention and care about accessibility when writing your code. As a reward, your content will be more properly handled by other code. As an example, here is what Bing presents when I search for **PhatLoots**.
-![PhatLoots Presented by Bing](https://codisimus.com/images/Bing%20Presented%20by%20Bing.png)
+![PhatLoots Presented by Bing](http://codisimus.com/images/Bing%20Presented%20by%20Bing.png)
 Notice how Bing is able to dynamically read the content from my page and present it in its own compressed, yet very intuitive, format.
 
 ## Hosting
-This website costs me nothing to host which is perfect for a casual side-project. The pages are served from [GitHub](https://github.com/Codisimus/codisimus.github.io) for free which is possible since the webpages themselves are static and not built using any backend server. There are of course downsides to such an approach. A static website is limited in many aspects. I have encountered a few of these myself and have used some innovative workarounds.
+This website costs me nothing to host which is perfect for a casual side-project. The pages are served from [GitHub](http://github.com/Codisimus/codisimus.github.io) for free which is possible since the webpages themselves are static and not built using any backend server. There are of course downsides to such an approach. A static website is limited in many aspects. I have encountered a few of these myself and have used some innovative workarounds.
 
 ### Dynamic Content
-I suppose, this is obvious but my static web pages are not designed to have dynamic content. What I mean by that is I, or a welcome visitor, cannot take some sort of action upon my website in order to update or change it. For example, you cannot *create an account*, *upload/post content*, or *edit and save a page*. For the most part, I don't need that functionality. However, for my [Bingo Board](https://codisimus.com/bigbowlbingo), it presented a problem...
+I suppose, this is obvious but my static web pages are not designed to have dynamic content. What I mean by that is I, or a welcome visitor, cannot take some sort of action upon my website in order to update or change it. For example, you cannot *create an account*, *upload/post content*, or *edit and save a page*. For the most part, I don't need that functionality. However, for my [Bingo Board](http://codisimus.com/bigbowlbingo), it presented a problem...
 
 #### Saving State
-[Big Bowl Bingo](https://codisimus.com/bigbowlbingo) is a project I created for a specific American Football event (though it would work with any game throughout the season). The tool provides you with a [Random Bingo Board](https://codisimus.com/bigbowlbingo?random) on which to play.
+[Big Bowl Bingo](http://codisimus.com/bigbowlbingo) is a project I created for a specific American Football event (though it would work with any game throughout the season). The tool provides you with a [Random Bingo Board](http://codisimus.com/bigbowlbingo?random) on which to play.
 
 Wanting to add some strategy to an otherwise simple game, I provided a way to build your own board by choosing exactly what you would like and where. But that is only worthwhile if it can be done ahead of time to prepare your custom board for later; when the game is being played. So the solution? Looking at [the code](https://github.com/Codisimus/codisimus.github.io/blob/master/bigbowlbingo.html#L19), each selection item is assigned a character value. Said characters are alpha-numeric including a few others since I wanted more than 36 options. These characters are then [stored in a hash](https://github.com/Codisimus/codisimus.github.io/blob/master/js/bigbowlbingo.js#L36) and appended to the URL as a **Board ID**. Using this approach, only 25 characters need to be provided in order to completely recreate the exact 5x5 grid.
 
@@ -48,7 +48,7 @@ Duplicate code/logic is my 2nd biggest pet peeve when it comes to programming (I
 I could go on, (and I possibly will in a future post) but for now let us leave it at "duplicating code is not ideal". When it comes to this website, the header and footer are shared across most pages. With modern technologies, you could implement a template in order to avoid manually repeating those elements on each page. I am still looking for an elegant solution that I like but for now, I have accepted copying/pasting my changes to each file. I do not often change that content so I feel no need to develop a costly solution in this scenario. If I do find it to be tedious in the future, I may write a simple script to automatically update each of my pages. But until then, developing said script would take more time in the long run.
 
 ## Minecraft Plugin Docs
-This was a fun challenge back when I worked on [Minecraft plugins](https://codisimus.com/plugins). I wanted to bring my plugin documentation to my website as well as add a few features not provided by BukkitDev. The plugins are no longer updated but I wanted to keep the documentation to highlight some functionality.
+This was a fun challenge back when I worked on [Minecraft plugins](http://codisimus.com/plugins). I wanted to bring my plugin documentation to my website as well as add a few features not provided by BukkitDev. The plugins are no longer updated but I wanted to keep the documentation to highlight some functionality.
 
 ### Tabbed Content
 The first feature I wanted to have was categorized tabs. My readers do not want to navigate several pages just to find the information of a single plugin. Here is the HTML for said Tabs:
@@ -67,7 +67,7 @@ The first feature I wanted to have was categorized tabs. My readers do not want 
 As you can see, each tab has its own *button*. For accessibility, each of these tabs is grouped together as list items within a *tabList*. Each Tab also has an assigned hash code so that a visitor may navigate directly to any tab. You may also notice that a specific class is used to indicate the *current-tab*. You can look at the full [CSS](https://github.com/Codisimus/codisimus.github.io/blob/master/css/plugindocs.css#L37) and [JS](https://github.com/Codisimus/codisimus.github.io/blob/master/js/plugindocs.js#L6) for more detail, but essentially, when a tab is clicked. the corresponding div is shown while the rest are hidden.
 
 ### Collapsable Info
-It took a while to get this right, but the result is a collapsable segment of the page that does not use any library or even JavaScript. As seen on the [Commands](/phatloots#commands) and [FAQ](https://codisimus.com/phatloots#faq) Tabs, you are able to click on the heading in order to reveal the related content. The trick behind this one is using a *checkbox* element to allow the CSS to determine whether the collapsable content is currently selected.
+It took a while to get this right, but the result is a collapsable segment of the page that does not use any library or even JavaScript. As seen on the [Commands](http://codisimus.com/phatloots#commands) and [FAQ](http://codisimus.com/phatloots#faq) Tabs, you are able to click on the heading in order to reveal the related content. The trick behind this one is using a *checkbox* element to allow the CSS to determine whether the collapsable content is currently selected.
 
 **HTML**:
 ```href
