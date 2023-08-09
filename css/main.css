@@ -126,6 +126,13 @@ main .content {
   color: inherit;
 }
 
+.content-link img {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 250px;
+  height: 180px;
+}
+
 main .content h2 {
   margin: 0px;
   padding: 20px;
